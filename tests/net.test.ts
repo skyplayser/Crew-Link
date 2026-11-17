@@ -17,7 +17,9 @@ const hasNet = adapters().length > 0;
 // Echter Multicast über die Netzadapter. Auf GitHub-Windows-Runnern (VM-Netz, Windows-Firewall für neue Programme) kommt
 // eigener Multicast nicht verlässlich zurück – dort übersprungen; derselbe Code läuft auf macOS im Workflow und lokal.
 // Unter Windows von Hand prüfen (Suite-Chat mit einem zweiten Suite-Programm).
-const realMulticast = hasNet && !(process.platform === "win32" && !!process.env.CI);
+// GitHub-Runner (Windows und macOS) leiten Multicast zwischen zwei Sockets nicht zuverlässig zurück (Release v0.1.0:
+// macOS-Lauf scheiterte hier) – der Test läuft deshalb nur lokal.
+const realMulticast = hasNet && !process.env.CI;
 
 describe("Suite-Netz (Testport 47681)", () => {
   it("Testport ist nicht der echte Suite-Port", () => { expect(TEST_PORT).toBe(47681); });
