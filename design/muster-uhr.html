@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="de" data-theme="night">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crew Link – Muster Große Uhr</title>
+<!-- Große Uhr: Fenster am Leitstand und /uhr/<floor> im Browser (Tablet quer). Keine Startanimation.
+     Im Programm ist .clock-screen die ganze Seite; --u kommt dann aus min(1vw,1.78vh).
+     Screenshot: cd /Users/serato/VD-Link && npx electron /Users/serato/Link-Suite/_tools/sheet-file.cjs \
+       /Users/serato/Crew-Link/design/muster-uhr.html /Users/serato/Crew-Link/design/screens/uhr.png 1360 -->
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="components.css">
+<style>
+  body{padding:28px 40px 60px;width:1360px}
+  .mu-h1{display:flex;align-items:center;gap:14px;font:800 26px var(--disp);margin:0 0 4px}
+  .mu-h1 img{height:30px}
+  .mu-sub{color:var(--dim);margin:0 0 8px;font-size:13px}
+  .mu-label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);font-weight:700;margin:30px 0 10px}
+  .mu-frame{border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.45)}
+  .mu-frame .clock-screen{min-height:0}
+  .f-big{width:1280px;height:720px}
+  .f-big .clock-screen{--u:12.8px}
+  .f-s{width:628px;height:353px}
+  .f-s .clock-screen{--u:6.28px}
+  .mu-grid{display:grid;grid-template-columns:628px 628px;gap:24px}
+  .mu-cap{color:var(--dim);font-size:12px;margin:8px 0 0}
+</style>
+</head>
+<body>
+<h1 class="mu-h1"><img src="../assets/symbol.svg" alt="">Crew Link · Muster Große Uhr</h1>
+<p class="mu-sub">Quer, ein Floor, lesbar aus 3 m: Countdown ≈ 31 % der Bildhöhe (bei 10″-Tablet etwa 4 cm Ziffernhöhe). Ziffern „Crew Display“ (Inter Display ExtraBold) mit tabular-nums. Zustand immer mit Wort.</p>
+
+<div class="mu-label">1 · Normal – Set-Ende grün, danach mit „bereit“, Balken bis Sperrstunde (1280 × 720)</div>
+<div class="mu-frame f-big">
+  <div class="clock-screen" style="--c:var(--floor-1)">
+    <div></div>
+    <div class="clock-top">
+      <div class="clock-floor"><span class="sq"></span>Floor 1 · Main</div>
+      <div class="clock-house"><b>02:46:48</b><small>Hausuhr · Systemuhr</small></div>
+    </div>
+    <div class="clock-what">Set-Ende · <b>Nova</b></div>
+    <div class="clock-huge cd ok">13:12</div>
+    <div class="clock-next">Danach <b>Kira</b> 03:00–05:00 · <span class="ok">✓ bereit</span> · Übergabe ab 02:50</div>
+    <div class="clock-curfew">
+      <div class="t"><span>22:00</span><span>Sperrstunde 05:00 · <b>noch 2:13:12</b></span><span>05:00</span></div>
+      <div class="clock-track"><i style="--p:68"></i></div>
+    </div>
+  </div>
+</div>
+
+<div class="mu-label">2 · Zustände (628 × 353, gleiche Proportionen)</div>
+<div class="mu-grid">
+  <div>
+    <div class="mu-frame f-s">
+      <div class="clock-screen" style="--c:var(--floor-1)">
+        <div class="clock-band info"><b>Nächster DJ in 10 min</b> · Kira übernimmt um 03:00</div>
+        <div class="clock-top"><div class="clock-floor"><span class="sq"></span>Floor 1 · Main</div><div class="clock-house"><b>02:51:48</b><small>Hausuhr · Systemuhr</small></div></div>
+        <div class="clock-what">Set-Ende · <b>Nova</b></div>
+        <div class="clock-huge cd warn">08:12</div>
+        <div class="clock-next">Danach <b>Kira</b> · <span class="info">in 8:12</span> · noch nicht bereit</div>
+        <div class="clock-curfew"><div class="t"><span>22:00</span><span>Sperrstunde 05:00 · <b>noch 2:08:12</b></span><span>05:00</span></div><div class="clock-track"><i style="--p:69"></i></div></div>
+      </div>
+    </div>
+    <p class="mu-cap">Ab 10 min gelb; Hinweis als breiter Streifen über allem (cyan = Hinweis). Antippen schließt ihn.</p>
+  </div>
+  <div>
+    <div class="mu-frame f-s">
+      <div class="clock-screen over" style="--c:var(--floor-2)">
+        <div></div>
+        <div class="clock-top"><div class="clock-floor"><span class="sq"></span>Floor 2 · Keller</div><div class="clock-house"><b>02:46:48</b><small>Hausuhr · Systemuhr</small></div></div>
+        <div class="clock-what">Überzogen · <b>Tom Riva</b> · geplant 02:40</div>
+        <div class="clock-huge cd over">+6:48</div>
+        <div class="clock-next">Danach <b>Special Guest</b> · Übergabe offen</div>
+        <div class="clock-curfew"><div class="t"><span>23:00</span><span>Sperrstunde 05:00 · <b>noch 2:13:12</b></span><span>05:00</span></div><div class="clock-track"><i style="--p:63"></i></div></div>
+      </div>
+    </div>
+    <p class="mu-cap">Überzogen: rot mit „+“, Wort „Überzogen“ und roter Rahmen um das ganze Bild (wie LIVE-Umrandung in LJ Link).</p>
+  </div>
+  <div>
+    <div class="mu-frame f-s">
+      <div class="clock-screen" style="--c:var(--floor-1)">
+        <div class="clock-band warn"><b>Letzter Track</b> · Sperrstunde in 5 min</div>
+        <div class="clock-top"><div class="clock-floor"><span class="sq"></span>Floor 1 · Main</div><div class="clock-house"><b>04:55:00</b><small>Hausuhr · Systemuhr</small></div></div>
+        <div class="clock-what">Sperrstunde · <b>05:00</b></div>
+        <div class="clock-huge cd crit">05:00</div>
+        <div class="clock-next">Set-Ende <b>Kira</b> zur Sperrstunde</div>
+        <div class="clock-curfew"><div class="t"><span>22:00</span><span>Sperrstunde 05:00 · <b class="crit">noch 5:00</b></span><span>05:00</span></div><div class="clock-track crit"><i style="--p:98"></i></div></div>
+      </div>
+    </div>
+    <p class="mu-cap">Letzter Slot endet mit der Sperrstunde: der große Countdown zeigt sie; Balken ab −15 min gelb, ab −5 min rot.</p>
+  </div>
+  <div>
+    <div class="mu-frame f-s">
+      <div class="clock-screen" style="--c:var(--floor-1)">
+        <div class="clock-band offline">Keine Verbindung seit 0:42 – Zeiten laufen weiter. Seite nicht neu laden.</div>
+        <div class="clock-top"><div class="clock-floor"><span class="sq"></span>Floor 1 · Main</div><div class="clock-house"><b>02:46:48</b><small style="color:var(--warn)">Hausuhr · letzte Messung vor 0:42</small></div></div>
+        <div class="clock-what">&nbsp;</div>
+        <div class="clock-huge words cd pause">UNTERBRECHUNG</div>
+        <div class="clock-next">Die Leitung hat die Nacht angehalten · seit 02:41</div>
+        <div class="clock-curfew"><div class="t"><span>22:00</span><span>Sperrstunde 05:00 · <b>noch 2:13:12</b></span><span>05:00</span></div><div class="clock-track"><i style="--p:68"></i></div></div>
+      </div>
+    </div>
+    <p class="mu-cap">Nacht angehalten (Wort statt Countdown) und Offline-Streifen gelb. Die Sperrstunde läuft weiter.</p>
+  </div>
+  <div>
+    <div class="mu-frame f-s">
+      <div class="clock-screen" style="--c:var(--floor-3)">
+        <div></div>
+        <div class="clock-top"><div class="clock-floor"><span class="sq"></span>Bühne A · Open Air</div><div class="clock-house"><b>05:17:50</b><small>Hausuhr · Timecode</small></div></div>
+        <div class="clock-what">Nächster Tag · <b>Sa 12:00</b></div>
+        <div class="clock-huge cd idle">6:42:10</div>
+        <div class="clock-next">Zuerst <b>Morning Glory</b> 12:00–13:30</div>
+        <div class="clock-curfew"><div class="t"><span>Tag 2 von 3</span><span>Open Air 2027</span><span></span></div><div class="clock-track"><i style="--p:0"></i></div></div>
+      </div>
+    </div>
+    <p class="mu-cap">Zwischen zwei Tagen: grau „Nächster Tag“, über 1 h als h:mm:ss. Zeitquelle Timecode steht in der Hausuhr-Zeile.</p>
+  </div>
+  <div>
+    <div class="mu-frame f-s" data-theme="day">
+      <div class="clock-screen" style="--c:var(--floor-1)">
+        <div></div>
+        <div class="clock-top"><div class="clock-floor"><span class="sq"></span>Floor 1 · Main</div><div class="clock-house"><b>02:46:48</b><small>Hausuhr · Systemuhr</small></div></div>
+        <div class="clock-what">Set-Ende · <b>Nova</b></div>
+        <div class="clock-huge cd ok">13:12</div>
+        <div class="clock-next">Danach <b>Kira</b> 03:00–05:00 · <span class="ok">✓ bereit</span></div>
+        <div class="clock-curfew"><div class="t"><span>22:00</span><span>Sperrstunde 05:00 · <b>noch 2:13:12</b></span><span>05:00</span></div><div class="clock-track"><i style="--p:68"></i></div></div>
+      </div>
+    </div>
+    <p class="mu-cap">Tagmodus (z. B. Tablet am Eingang der Booth bei Tageslicht): dunklere Zustandsfarben, gleicher Aufbau.</p>
+  </div>
+</div>
+<script src="muster.js"></script>
+</body>
+</html>

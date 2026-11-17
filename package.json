@@ -1,0 +1,151 @@
+{
+  "name": "crew-link",
+  "version": "0.1.0",
+  "productName": "Crew Link",
+  "description": "Crew Link: Ablauf der Nacht – wer wann spielt, Countdown bis Set-Ende und Sperrstunde, eine Uhr für alle.",
+  "private": true,
+  "main": "dist/main/main.js",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "check": "npm run typecheck && npm test",
+    "start": "npm run build && node scripts/dev-app.mjs --run",
+    "dev": "npm run build && node scripts/dev-app.mjs --run --demo",
+    "icons": "node scripts/make-icons.mjs",
+    "dist:dir": "npm run build && electron-builder --mac --dir --arm64 --publish never",
+    "dist:mac": "npm run build && electron-builder --mac --arm64 --x64 --publish never && node scripts/rename-dist.mjs",
+    "dist:win": "npm run build && electron-builder --win --x64 --publish never && node scripts/rename-dist.mjs"
+  },
+  "dependencies": {
+    "uqr": "0.1.3",
+    "ws": "8.23.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/ws": "^8.18.1",
+    "electron": "45.3.1",
+    "electron-builder": "26.17.0",
+    "esbuild": "^0.28.2",
+    "temporal-polyfill": "1.0.8",
+    "typescript": "^5.7.0",
+    "vitest": "^5.1.0"
+  },
+  "author": {
+    "name": "Philipp Spruck / NEXTPHILM",
+    "email": "anfrage@nextphilm.de"
+  },
+  "license": "EPL-2.0",
+  "homepage": "https://github.com/skyplayser/Crew-Link",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/skyplayser/Crew-Link.git"
+  },
+  "build": {
+    "appId": "de.nextphilm.crewlink",
+    "afterPack": "build/after-pack.cjs",
+    "productName": "Crew Link",
+    "copyright": "© 2026 Philipp Spruck / NEXTPHILM",
+    "directories": {
+      "output": "release",
+      "buildResources": "build"
+    },
+    "files": [
+      "dist/**/*",
+      "!dist/**/*.map",
+      "package.json",
+      "LICENSE",
+      "THIRD_PARTY.md"
+    ],
+    "extraResources": [
+      {
+        "from": "LICENSE",
+        "to": "LICENSE.txt"
+      },
+      {
+        "from": "dist/THIRD_PARTY_LICENSES.txt",
+        "to": "THIRD_PARTY_LICENSES.txt"
+      }
+    ],
+    "asar": true,
+    "electronFuses": {
+      "runAsNode": false,
+      "enableNodeOptionsEnvironmentVariable": false,
+      "enableNodeCliInspectArguments": false,
+      "onlyLoadAppFromAsar": true,
+      "enableEmbeddedAsarIntegrityValidation": true
+    },
+    "mac": {
+      "category": "public.app-category.utilities",
+      "icon": "build/icon.icns",
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "arm64",
+            "x64"
+          ]
+        }
+      ],
+      "identity": "-",
+      "minimumSystemVersion": "13.0",
+      "extendInfo": {
+        "NSLocalNetworkUsageDescription": "Crew Link zeigt den Ablauf der Nacht auf Handys im lokalen Netz (Weboberfläche) und nimmt am Suite-Chat teil (Multicast 239.255.76.76). Web interface for phones on the local network and the suite chat."
+      },
+      "hardenedRuntime": false,
+      "artifactName": "Crew-Link-macos-${arch}.${ext}"
+    },
+    "dmg": {
+      "title": "Crew Link ${version}"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "artifactName": "Crew-Link-windows.${ext}",
+      "icon": "build/icon.ico",
+      "extraResources": [
+        {
+          "from": "node_modules/electron/dist/LICENSE",
+          "to": "LICENSE.electron.txt"
+        },
+        {
+          "from": "node_modules/electron/dist/LICENSES.chromium.html",
+          "to": "LICENSES.chromium.html"
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowElevation": false,
+      "allowToChangeInstallationDirectory": false,
+      "installerLanguages": [
+        "de_DE",
+        "en_US"
+      ],
+      "multiLanguageInstaller": true,
+      "include": "build/installer.nsh",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "runAfterFinish": true,
+      "shortcutName": "Crew Link",
+      "uninstallDisplayName": "Crew Link"
+    },
+    "electronLanguages": [
+      "de",
+      "en",
+      "en-US",
+      "en-GB"
+    ],
+    "publish": null
+  }
+}

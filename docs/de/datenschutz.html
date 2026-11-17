@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Datenschutzerklärung – Crew Link</title>
+<meta name="description" content="Datenschutzerklärung für die Website von Crew Link und Kurzfassung, was das Programm Crew Link sendet.">
+<link rel="canonical" href="https://skyplayser.github.io/Crew-Link/de/datenschutz.html">
+<link rel="alternate" hreflang="en" href="https://skyplayser.github.io/Crew-Link/datenschutz.html">
+<link rel="alternate" hreflang="de" href="https://skyplayser.github.io/Crew-Link/de/datenschutz.html">
+<link rel="icon" href="../images/crew-link-icon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#0C0E13">
+<link rel="stylesheet" href="../site.css">
+<script src="../site.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Zum Inhalt</a>
+<header class="top">
+  <div class="wrap">
+    <a href="./" class="brand"><img src="../images/crew-link-icon.svg" alt="" width="34" height="34"><span>Crew Link</span></a>
+    <div class="tools">
+      <button class="chip-btn" id="theme" type="button" aria-label="Tag / Nacht umschalten" title="Tag / Nacht"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 0 0 16z" fill="currentColor"/></svg></button>
+      <a class="chip-btn" href="../datenschutz.html" hreflang="en" lang="en" title="English">EN</a>
+    </div>
+  </div>
+</header>
+
+<main id="main" class="wrap legal">
+  <p class="eyebrow">Crew Link</p>
+  <h1>Datenschutzerklärung</h1>
+  <p class="lead">Für die Website <code>skyplayser.github.io/Crew-Link</code> und, als Kurzfassung, für das Programm Crew Link.</p>
+
+  <h2>Verantwortlicher</h2>
+  <p>Philipp Spruck, NEXTPHILM – Party DJ &amp; Eventtechnik, Bürgermeister-Beheim-Straße 49, 63165 Mühlheim am Main, E-Mail: <a href="mailto:anfrage@nextphilm.de">anfrage@nextphilm.de</a>. Weitere Angaben im <a href="../impressum.html">Impressum</a>.</p>
+
+  <h2>Kurz gesagt</h2>
+  <ul class="clean">
+    <li>Diese Website setzt <b>keine Cookies</b>, kein Tracking und keine Analyse-Werkzeuge ein.</li>
+    <li>Sie lädt <b>nichts von anderen Servern</b>: keine externen Schriften, keine CDNs, keine eingebetteten Inhalte. Schrift, Bilder und Skript liegen auf dieser Website.</li>
+    <li>Sie wird bei <b>GitHub Pages</b> gehostet; GitHub verarbeitet dabei technisch notwendige Zugriffsdaten.</li>
+    <li>Nur die gewählte Darstellung (Tag/Nacht) bleibt in deinem Browser gespeichert.</li>
+  </ul>
+
+  <h2>Hosting bei GitHub Pages</h2>
+  <p>Die Website wird über GitHub Pages bereitgestellt (GitHub, Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA; ein Unternehmen von Microsoft). Beim Aufruf verarbeitet GitHub technisch notwendige Daten wie IP-Adresse, Zeitpunkt, aufgerufene Seite und Browser-Kennung, um die Seite auszuliefern und vor Missbrauch zu schützen (Server-Logs). Rechtsgrundlage ist unser berechtigtes Interesse an einer sicheren, zuverlässigen Bereitstellung (Art. 6 Abs. 1 lit. f DSGVO). Die Übermittlung in die USA stützt sich auf das EU-US Data Privacy Framework, an dem GitHub teilnimmt. Wie lange GitHub die Zugriffsdaten speichert, legt GitHub fest; wir haben darauf keinen Zugriff. Einzelheiten: <a href="https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement">Datenschutzerklärung von GitHub</a>.</p>
+
+  <h2>Lokale Speicherung im Browser</h2>
+  <p>Die gewählte Darstellung (Tag/Nacht) wird im Speicher deines Browsers (localStorage, Schlüssel <code>crewlink-theme</code>) abgelegt, und zwar nur, wenn du auf den Tag/Nacht-Knopf klickst. Er wird nie übertragen. Du kannst den Eintrag jederzeit in den Einstellungen deines Browsers löschen. Eine Einwilligung ist dafür nicht nötig (§ 25 Abs. 2 Nr. 2 TDDDG).</p>
+
+  <h2>Links nach außen</h2>
+  <p>Die Website verlinkt auf andere Angebote, zum Beispiel GitHub (Quellcode, Releases, Launcher Link-Suite), Discord und die Seiten der anderen Programme der Link-Suite. Erst wenn du einen solchen Link anklickst, ruft dein Browser die andere Seite auf; dort gelten deren Datenschutzbestimmungen.</p>
+
+  <h2>Das Programm Crew Link</h2>
+  <p>Crew Link läuft auf deinem Rechner und in deinem lokalen Netz. Es hat kein Konto, keine Cloud, keine Telemetrie und keine Update-Prüfung und sendet uns keine Daten. Im lokalen Netz sendet es:</p>
+  <ul class="clean">
+    <li><b>Weboberfläche</b> (Port 8070, ab Werk aus): den Timetable an Browser im Show-Netz, unverschlüsselt. Rollen-Seiten mit internen Namen und Notizen; große Uhr und öffentliche Seite nur mit öffentlichen Namen. In 0.1.0 gibt es keine PIN-Prüfung.</li>
+    <li><b>Suite-Netz</b> (Multicast, TTL 1, ab Werk an, abschaltbar unter VERBINDEN): alle 5 s <code>here</code> mit Programm, Version, Rolle, Web-Adresse, Kennung der Veranstaltung und Tag; jede Sekunde <code>tick</code> mit Hausuhr, laufendem Tag und Floors nur mit öffentlichen Namen.</li>
+    <li><b>Suite-Chat</b> (an, solange das Suite-Netz an ist, ab dem Programmstart, auch wenn du das Chatfenster nie öffnest): alle 5 s ein Anwesenheitszeichen (Programm, zufällige Kennung, dein Chat-Name und deine Position); jede Nachricht mit Name, Position, Text und Uhrzeit. Neue im Raum bekommen von jedem Programm, auch von Crew Link, die letzten bis zu 20 Nachrichten noch einmal. Es gibt keine Anmeldung und keine Verschlüsselung, und Absender lassen sich fälschen. Jedes Paket trägt die IP-Adresse deines Rechners (im lokalen Netz auch die Hardware-Adresse der Netzwerkkarte); wer mitliest, sieht sie. Crew Link hält die Nachrichten nur im Arbeitsspeicher, nie in einer Datei.</li>
+    <li><b>Link-Suite-Website:</b> Nur wenn du auf der Karte im Startbildschirm „Link-Suite laden“ klickst, öffnet dein Browser <code>https://skyplayser.github.io/Link-Suite/</code>. <i>In NET Link prüfen</i> öffnet NET Link auf demselben Rechner und sendet nichts ins Netz.</li>
+    <li><b>Speichern:</b> Eine Veranstaltung wird nur mit deinem Ja auf dem Rechner gesichert. Die Browser-Seiten von Crew Link speichern nichts (keine Cookies, kein localStorage).</li>
+  </ul>
+  <p>Alle Einzelheiten stehen im <a href="https://github.com/skyplayser/Crew-Link/blob/main/README.de.md#was-den-rechner-verlässt">README, Abschnitt „Was den Rechner verlässt“</a>.</p>
+  <p>Für die Daten, die das Programm im lokalen Netz verarbeitet, sind wir nicht Verantwortlicher im Sinne der DSGVO: Wir stellen nur das Programm bereit, erhalten keine dieser Daten und haben keinen Zugriff darauf. Setzt ein Veranstalter, eine Firma oder ein Team Crew Link beruflich ein, ist in der Regel dieser verantwortlich und Ansprechpartner für Auskunft und Löschung.</p>
+
+  <h2>Kontakt per E-Mail oder Telefon</h2>
+  <p>Wenn du uns schreibst oder anrufst, verarbeiten wir deine Angaben (Name, Adresse bzw. Nummer, Inhalt), um deine Anfrage zu beantworten (Art. 6 Abs. 1 lit. b bzw. f DSGVO). Wir löschen sie, wenn die Anfrage erledigt ist, spätestens nach 12 Monaten, sofern keine gesetzliche Aufbewahrungspflicht besteht.</p>
+
+  <h2>Issues auf GitHub</h2>
+  <p>Beiträge in den Issues unserer Repositories sind öffentlich. Wir sehen deinen GitHub-Namen und deine Beiträge und nutzen sie nur für Support und Weiterentwicklung. Es gilt die <a href="https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement">Datenschutzerklärung von GitHub</a>.</p>
+
+  <h2>Discord-Server und LJ Link Bot</h2>
+  <p>Für Support und Austausch betreiben wir einen Discord-Server. Discord wird von Discord Inc. (444 De Haro Street, Suite 200, San Francisco, CA 94107, USA) bereitgestellt; bei der Nutzung gelten die <a href="https://discord.com/privacy">Datenschutzerklärung</a> und die <a href="https://discord.com/terms">Nutzungsbedingungen</a> von Discord. Discord verarbeitet dabei unter anderem deinen Benutzernamen, deine Nachrichten und technische Verbindungsdaten, auch in den USA. Als Betreiber des Servers sehen wir deinen Benutzernamen, deine Rollen und die Nachrichten, die du auf dem Server schreibst. Rechtsgrundlage ist unser berechtigtes Interesse an einer Support- und Community-Plattform (Art. 6 Abs. 1 lit. f DSGVO).</p>
+  <p>Auf dem Server läuft der <em>LJ Link Bot</em>. Was er liest, speichert und an wen er Fragen weitergibt (KI-Antworten über die Claude-API von Anthropic, Moderation, Speicherdauer, Widerspruch über die Rolle „Kein Bot“), steht ausführlich in der <a href="https://skyplayser.github.io/VJ-LINK/datenschutz.html">Datenschutzerklärung von VJ-Link</a>; es ist derselbe Server und derselbe Bot.</p>
+
+  <h2>Widerspruchsrecht</h2>
+  <p><strong>Soweit Daten auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO verarbeitet werden (Server-Logs bei GitHub Pages, Discord), kannst du aus Gründen, die sich aus deiner besonderen Situation ergeben, jederzeit widersprechen (Art. 21 DSGVO).</strong></p>
+  <h2>Deine Rechte</h2>
+  <p>Du hast das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch (Art. 15–21 DSGVO) sowie das Recht auf Beschwerde bei einer Datenschutz-Aufsichtsbehörde, zum Beispiel beim Hessischen Beauftragten für Datenschutz und Informationsfreiheit. Da wir selbst über diese Website keine personenbezogenen Daten erhalten, richten sich Anfragen zu den Zugriffsdaten bei GitHub an GitHub.</p>
+
+  <p class="stand">Stand: November 2026</p>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>© 2026 Philipp Spruck / NEXTPHILM · <a href="./">Crew Link</a> · <a href="https://github.com/skyplayser/Crew-Link">GitHub</a> · <a href="../datenschutz.html" hreflang="en">English</a> · <a href="../impressum.html">Impressum</a> · <a href="datenschutz.html" aria-current="page">Datenschutzerklärung</a></p>
+  </div>
+</footer>
+</body>
+</html>

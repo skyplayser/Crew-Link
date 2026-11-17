@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crew Link – running order of the night, one clock for everyone</title>
+<meta name="description" content="Free timetable and countdown for clubs and festivals: who plays when, countdown to set end and curfew – on phones, a big clock in the booth and a screen at the entrance. Alpha, part of the Link-Suite.">
+<meta name="author" content="SKYPLAYSER / NEXTPHILM">
+<link rel="canonical" href="https://skyplayser.github.io/Crew-Link/">
+<link rel="alternate" hreflang="en" href="https://skyplayser.github.io/Crew-Link/">
+<link rel="alternate" hreflang="de" href="https://skyplayser.github.io/Crew-Link/de/">
+<link rel="alternate" hreflang="x-default" href="https://skyplayser.github.io/Crew-Link/">
+<link rel="icon" href="images/crew-link-icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="images/crew-link-icon-256.png">
+<meta name="theme-color" content="#0C0E13">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Crew Link">
+<meta property="og:title" content="Crew Link – one clock for everyone">
+<meta property="og:description" content="Who plays when, countdown to set end and curfew – on phones, a big clock in the booth and a screen at the entrance. Free, alpha, part of the Link-Suite.">
+<meta property="og:image" content="https://skyplayser.github.io/Crew-Link/images/crew-link-start-screen-night-en.png">
+<meta property="og:url" content="https://skyplayser.github.io/Crew-Link/">
+<link rel="stylesheet" href="site.css">
+<script src="site.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap">
+    <a href="./" class="brand"><img src="images/crew-link-icon.svg" alt="" width="34" height="34"><span>Crew Link</span></a>
+    <nav id="nav" aria-label="Main">
+      <a href="#features">Features</a>
+      <a href="#screens">Screens</a>
+      <a href="#how">How it works</a>
+      <a href="#sends">What it sends</a>
+      <a href="#download">Download</a>
+      <a href="#start">Build</a>
+      <a href="#suite">Link-Suite</a>
+      <a href="https://github.com/skyplayser/Crew-Link">GitHub</a>
+    </nav>
+    <div class="tools">
+      <button class="chip-btn" id="theme" type="button" aria-label="Switch day / night" title="Day / night"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 0 0 16z" fill="currentColor"/></svg></button>
+      <a class="chip-btn" href="de/" hreflang="de" lang="de" title="Deutsch">DE</a>
+      <button class="chip-btn menu-btn" id="menu" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav">&#9776;</button>
+    </div>
+  </div>
+</header>
+
+<main id="main" class="wrap">
+  <div class="hero">
+    <img class="icon" src="images/crew-link-icon.svg" alt="Crew Link logo" width="120" height="120">
+    <span class="kicker">Crew Link · part of the Link-Suite · alpha 0.1.0</span>
+    <h1>Running order of the night.<br><span class="grad">One clock for everyone.</span></h1>
+    <p class="tag">Who plays when, countdown to set end and curfew – on the phones of the crew, as a big clock in the booth and on a screen at the entrance. One computer holds the timetable, nobody has to install anything.</p>
+    <div class="cta">
+      <a class="btn primary" href="#download">Download via Link-Suite</a>
+      <a class="btn" href="#how">How it works</a>
+      <a class="btn" href="#start">Build from source</a>
+    </div>
+    <p class="meta">First public alpha · tested on one Mac in demo mode · not yet on real phones · install via the Link-Suite launcher · free · open source (EPL-2.0)</p>
+    <img class="shot" src="images/crew-link-start-screen-night-en.png" width="3200" height="1936" alt="Crew Link start screen in night mode: Continue with the demo event, tiles for new event, template, big clock and connect phones, on the right the address and QR code for phones" fetchpriority="high">
+    <p class="cap">Real screenshot with the demo event. The address 192.168.1.20 is an example.</p>
+
+    <div class="note">
+      <p><strong>This is the first public alpha (0.1.0, phase 1 of the plan).</strong> Crew Link has only been tested in demo mode on the test computer (one Mac) and with more than 100 automatic tests. The test with real phones and tablets is still to come; Windows and a real club night are not tested either. The app is not signed or notarized. Try it before an important night, keep a printed timetable, and tell us what you find on <a href="https://discord.gg/N6DMca4Bjk" rel="noopener">Discord</a>.</p>
+    </div>
+  </div>
+
+  <section id="features">
+    <p class="eyebrow">Features</p>
+    <h2>Everyone knows how long is left.</h2>
+    <p class="lead">The lead builds the night on one computer in the show network – the control desk. Everyone else sees the part they need. Crew Link only shows times: it never stops the music and never switches the light.</p>
+    <div class="grid">
+      <div class="card"><h3><span class="dot" style="background:var(--info)"></span>Timetable with days and floors</h3><p>One night or a festival with several days, each with opening hours and its own curfew. Slots on a timeline or as a list, <i>Copy day</i>, templates, A4 print.</p></div>
+      <div class="card"><h3><span class="dot" style="background:var(--ok)"></span>Countdowns that do not jump</h3><p>Set end, next slot, floor end and curfew. Green, from 10 min yellow, from 2 min red, then red with “+” when a DJ runs over.</p></div>
+      <div class="card"><h3><span class="dot" style="background:var(--own)"></span>Phones without an app</h3><p><i>Connect phones</i> shows one QR code per role: lead, booth, DJ, tech, security, bar. Each role sees what it needs.</p></div>
+      <div class="card"><h3><span class="dot" style="background:var(--warn)"></span>One house clock</h3><p>The control desk gives the time. Browsers measure their offset, so a phone with a wrong clock still counts right – about ±0.01 s on the test computer.</p></div>
+      <div class="card"><h3><span class="dot" style="background:var(--live)"></span>Big clock for booth and DJ desk</h3><p>Full screen, one floor: countdown, who comes next and a bar to curfew. As a window on the control desk or in the browser.</p></div>
+      <div class="card"><h3><span class="dot" style="background:var(--info)"></span>Public page for the entrance</h3><p>“Now · next” per floor, with public names only. A secret guest stays “Special Guest”.</p></div>
+      <div class="card"><h3><span class="dot" style="background:var(--ok)"></span>Keeps counting without network</h3><p>If the Wi-Fi drops, phones and clocks keep counting with the last plan and show a yellow strip.</p></div>
+      <div class="card"><h3><span class="dot" style="background:var(--own)"></span>Running over? You decide</h3><p><i>Shorten next</i> and <i>Shift everything</i> show a preview first. Crew Link never changes the plan by itself and warns before curfew.</p></div>
+      <div class="card"><h3><span class="dot" style="background:var(--warn)"></span>Suite chat with EMERGENCY</h3><p>On the control desk Crew Link is a member of the suite chat with LJ Link, LJL Link and VJ-Link. EMERGENCY is not a safety system.</p></div>
+    </div>
+  </section>
+
+  <section id="screens">
+    <p class="eyebrow">Screens</p>
+    <h2>Real screenshots, demo data.</h2>
+    <p class="lead">Taken on the test Mac with the demo event “Weekend Club Example” (English interface). Crew Link also speaks German.</p>
+    <h3 class="sub">Control desk</h3>
+    <div class="gallery">
+      <figure><img src="images/crew-link-timetable-night-en.png" width="3200" height="1936" loading="lazy" alt="TIMETABLE in night mode: three floors on a timeline, Nova selected, the Keller floor has run over by 7:48"><figcaption><b>TIMETABLE.</b> Red line = now, yellow line = curfew. On the right the selected slot with <i>Handover now</i>, <i>Shorten next</i>, <i>Shift everything</i>.</figcaption></figure>
+      <figure><img src="images/crew-link-now-night-en.png" width="3200" height="1936" loading="lazy" alt="Tab NOW with big countdowns for three floors"><figcaption><b>NOW.</b> All floors of the running day with big countdowns – for the control desk during the show.</figcaption></figure>
+      <figure><img src="images/crew-link-timetable-day-en.png" width="3200" height="1936" loading="lazy" alt="TIMETABLE in day mode"><figcaption><b>Day mode.</b> For the office or a bright room.</figcaption></figure>
+      <figure><img src="images/crew-link-roles-qr-codes-night-en.png" width="3200" height="1936" loading="lazy" alt="Tab ROLES with one QR code per role"><figcaption><b>ROLES.</b> One QR code per role, to print and stick at the bar, the door and the booth.</figcaption></figure>
+    </div>
+    <h3 class="sub">Big clock and public page</h3>
+    <div class="gallery">
+      <figure><img src="images/crew-link-big-clock-main-night-en.png" width="2560" height="1376" loading="lazy" alt="Big clock for Main: set end countdown in green"><figcaption><b>Big clock.</b> Countdown to set end, who comes next, bar to curfew.</figcaption></figure>
+      <figure><img src="images/crew-link-big-clock-overrun-night-en.png" width="2560" height="1376" loading="lazy" alt="Big clock for the Keller floor: red +7:51 with a notice strip"><figcaption><b>Run over.</b> Red with “+” and a notice strip.</figcaption></figure>
+      <figure><img src="images/crew-link-big-clock-offline-night-en.png" width="2560" height="1376" loading="lazy" alt="Big clock without network: yellow strip, the countdown keeps running"><figcaption><b>No network.</b> The clock keeps counting and says so.</figcaption></figure>
+      <figure><img src="images/crew-link-public-entrance-night-en.png" width="2560" height="1440" loading="lazy" alt="Public page: now and next for three floors, music until 03:30"><figcaption><b>Public page.</b> For a screen at the entrance – public names only.</figcaption></figure>
+    </div>
+    <h3 class="sub">Phones</h3>
+    <div class="phones">
+      <figure><img src="images/crew-link-phone-dj-night-en.png" width="780" height="1688" loading="lazy" alt="Phone view DJ Kira: you play in 12:03"><figcaption><b>DJ</b></figcaption></figure>
+      <figure><img src="images/crew-link-phone-booth-keller-night-en.png" width="780" height="1688" loading="lazy" alt="Phone view of the booth on the Keller floor"><figcaption><b>Booth</b></figcaption></figure>
+      <figure><img src="images/crew-link-phone-security-night-en.png" width="780" height="1688" loading="lazy" alt="Phone view for security: entry stop in 1:12:00"><figcaption><b>Security</b></figcaption></figure>
+      <figure><img src="images/crew-link-phone-bar-day-en.png" width="780" height="1688" loading="lazy" alt="Phone view for the bar in day mode"><figcaption><b>Bar</b>, day mode</figcaption></figure>
+      <figure><img src="images/crew-link-phone-offline-strip-night-en.png" width="780" height="1624" loading="lazy" alt="Phone view of the booth without network: yellow strip"><figcaption><b>Offline</b> strip</figcaption></figure>
+    </div>
+    <p class="cap">Phone views in a 390 × 844 browser window on the Mac, not on a real phone. The strip on top (“tap once so the screen stays on”) looks the same on a device.</p>
+  </section>
+
+  <section id="how">
+    <p class="eyebrow">How it works</p>
+    <h2>One control desk, many screens.</h2>
+    <p class="lead">Crew Link runs on one computer in the show network. Phones, tablets and screens open its pages in the browser. Everything stays in the local network: no account, no cloud, no telemetry, no connection to the internet.</p>
+    <div class="flow">
+      <div class="node main"><img src="images/crew-link-icon.svg" alt="" width="64" height="64"><b>Crew Link</b><small>control desk · timetable · house clock</small></div>
+      <div class="arrow"><span>→</span>web: port 8070<br>(off by default)<br>suite: multicast</div>
+      <div class="targets">
+        <div class="node"><b>Phones and tablets</b><small>lead · booth · DJ · tech · security · bar – read only in 0.1.0</small></div>
+        <div class="node"><b>Big clock</b><small>booth · DJ desk</small></div>
+        <div class="node"><b>Public page</b><small>entrance · bar · public names only</small></div>
+        <div class="node later"><b>LJ Link · LJL Link · VJ-Link</b><small>suite chat and EMERGENCY over multicast today. Crew Link also sends the countdown (<code>tick</code>); showing it there needs an update of those programs.</small><span class="tagline warn">countdown there: planned</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sends">
+    <p class="eyebrow">What leaves your computer</p>
+    <h2>Only in the local network.</h2>
+    <p class="lead">Crew Link sends only within the local network. It has no account, no cloud, no telemetry and no update check.</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>What</th><th>To</th><th>When</th></tr></thead>
+      <tbody>
+        <tr><td>Role pages: timetable with internal names and notes</td><td>browsers in the show network, port 8070, unencrypted</td><td>only while the web interface is on (off by default)</td></tr>
+        <tr><td>Big clock and public page: <b>public names only</b>, no notes</td><td>browsers, port 8070</td><td>only while the web interface is on</td></tr>
+        <tr><td><code>here</code> every 5 s: app, version, role, web address, event id, day</td><td>suite network (multicast, TTL 1)</td><td>while the suite network is on (on by default, switch off under CONNECT)</td></tr>
+        <tr><td><code>tick</code> every second: house clock, running day, floors with <b>public names only</b></td><td>suite network</td><td>while the suite network is on</td></tr>
+        <tr><td>Suite chat: every 5 s a presence signal (program, random id, your chat name and position); each message with name, position, text and time. Newcomers get up to the last 20 messages again from every program in the room – also from Crew Link. Senders can be faked.</td><td>every suite program in the network (multicast, unencrypted)</td><td>while the suite network is on</td></tr>
+        <tr><td>Opening the Link-Suite website (<code>https://skyplayser.github.io/Link-Suite/</code>)</td><td>your browser</td><td>only when you click “Get Link-Suite” on the start screen card</td></tr>
+        <tr><td><i>Check in NET Link</i> opens NET Link on the same computer (<code>netlink://</code>)</td><td>this computer only</td><td>only when you click it</td></tr>
+        <tr><td>Phone numbers, e-mails, fees</td><td>–</td><td class="yes">never – there are no fields for them</td></tr>
+      </tbody>
+    </table></div>
+    <div class="two" style="margin-top:28px">
+      <ul class="clean">
+        <li><b>Saving only with your yes.</b> Crew Link asks <i>Save on this computer?</i> Without a yes the plan stays in memory only – no autosave, no list of recent files. The demo never saves.</li>
+        <li><b>Crew Link's browser pages store nothing:</b> no cookies, no localStorage, no account. The role is in the address. (This website only remembers day/night, see the <a href="datenschutz.html">privacy policy</a>.)</li>
+        <li><b>Public name per slot.</b> Public page, big clock and suite network only get the public name.</li>
+      </ul>
+      <ul class="clean">
+        <li><b>Unencrypted.</b> Anyone in the show network can read the plan. Do not put anything confidential in the notes.</li>
+        <li><b>Private networks only.</b> The web interface only answers addresses from private ranges (10/8, 172.16/12, 192.168/16, 169.254/16, 127/8).</li>
+        <li><b>Chat in memory only</b>, never in a file – but messages go to every program in the room and can be passed on to newcomers.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="status">
+    <p class="eyebrow">State</p>
+    <h2>What works in 0.1.0 – and what does not yet.</h2>
+    <p class="lead">Honest list. “Tested” means: on one Mac, in demo mode and with automatic tests.</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Area</th><th>State</th></tr></thead>
+      <tbody>
+        <tr><td>Timetable: days, floors, slots, timeline, list, copy day, templates, check, A4 print</td><td class="yes">alpha · tested in demo mode and with tests</td></tr>
+        <tr><td>Countdowns, curfew per day, next day, tab NOW, big clock, public page</td><td class="yes">alpha · tested in demo mode</td></tr>
+        <tr><td>Time zone, midnight, clock change in March and October</td><td class="yes">13 cases as tests, plus a cross-check with a second time library</td></tr>
+        <tr><td>Role pages and big clock in the browser</td><td>tested in a browser on the same Mac – <b>not on real phones or tablets yet</b></td></tr>
+        <tr><td>Keep the screen on (wake lock, video fallback from LJ Link)</td><td class="no">a workaround over http, untested on real devices</td></tr>
+        <tr><td>Suite network and suite chat</td><td>tested on one Mac next to VJ-Link on a test port – not between two computers</td></tr>
+        <tr><td>Download via the Link-Suite launcher</td><td class="yes">from release 0.1.0</td></tr>
+        <tr><td>Windows · signed and notarized app</td><td class="no">not tested · not yet (macOS and Windows may warn on the first start)</td></tr>
+        <tr><td>PINs and rights, <i>Ready</i> and <i>+5 min</i> on the phone</td><td class="no">not yet (phase 2) – all browser pages are read only and without PIN</td></tr>
+        <tr><td>Crew chat and EMERGENCY on phones, Bonjour</td><td class="no">not yet (phase 2)</td></tr>
+        <tr><td>Log of the night</td><td class="no">not yet (phase 3)</td></tr>
+        <tr><td>Signals, house light, timecode as time source</td><td class="no">not yet (phase 4)</td></tr>
+        <tr><td>Countdown inside LJ Link, LJL Link, VJ-Link</td><td class="no">not yet – those programs need an update</td></tr>
+        <tr><td>Stages for festivals</td><td class="no">in the file format, no interface yet (phase 5)</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="download">
+    <p class="eyebrow">Download</p>
+    <h2>Download with the Link-Suite launcher.</h2>
+    <div class="launcher">
+      <img src="images/link-suite-icon.svg" alt="" width="88" height="88">
+      <p class="lead">All programs of the suite are downloaded, installed and updated with one launcher: <b>Link-Suite</b>, for Mac and Windows.</p>
+    </div>
+    <div class="dl">
+      <a class="dl-card" href="https://github.com/skyplayser/Link-Suite/releases/latest/download/Link-Suite-macos-arm64.dmg"><b>macOS · Apple silicon</b><span>Link-Suite-macos-arm64.dmg</span></a>
+      <a class="dl-card" href="https://github.com/skyplayser/Link-Suite/releases/latest/download/Link-Suite-macos-intel.dmg"><b>macOS · Intel</b><span>Link-Suite-macos-intel.dmg</span></a>
+      <a class="dl-card" href="https://github.com/skyplayser/Link-Suite/releases/latest/download/Link-Suite-windows.exe"><b>Windows</b><span>Link-Suite-windows.exe</span></a>
+    </div>
+    <p style="margin-top:14px"><a href="https://skyplayser.github.io/Link-Suite/">About the launcher →</a></p>
+    <ol class="steps">
+      <li><b>Download the launcher</b> for your computer and open it.</li>
+      <li><b>Click <i>Install</i> next to Crew Link.</b> The launcher downloads Crew Link from its GitHub releases, checks the file and keeps it up to date.</li>
+      <li><b>Start Crew Link</b> and open the demo.</li>
+    </ol>
+    <p class="cap">If the launcher still shows Crew Link as <i>coming soon</i>, release 0.1.0 is not out yet – until then start it from the source code (below).</p>
+    <!-- Wieder einschalten, sobald das Repo skyplayser/Crew-Link existiert:
+    <p class="cap">Single installers of Crew Link (<code>Crew-Link-macos-arm64.dmg</code>, <code>Crew-Link-macos-intel.dmg</code>, <code>Crew-Link-windows.exe</code>) and <code>SHA256SUMS</code> are in the <a href="https://github.com/skyplayser/Crew-Link/releases">GitHub releases</a> of Crew Link.</p>
+    -->
+    <div class="note">
+      <p><strong>Not signed or notarized yet.</strong> The launcher and Crew Link 0.1.0 are an alpha without a signature, so both systems may warn on the first start.</p>
+      <p><b>macOS</b> (“Not Opened”): click <i>Done</i>, open <i>System Settings → Privacy &amp; Security</i>, click <b>Open Anyway</b> and confirm with your password. Allow access to the local network when macOS asks.</p>
+      <p><b>Windows</b> (“Windows protected your PC”): click <b>More info</b>, then <b>Run anyway</b>. When the firewall asks, allow <i>Private networks</i>, otherwise phones cannot reach the web interface.</p>
+      <p>Only do this for files from the official GitHub pages or this website.</p>
+    </div>
+  </section>
+
+  <section id="start">
+    <p class="eyebrow">Build from source</p>
+    <h2>Build from source.</h2>
+    <p class="lead">For developers, or as long as the launcher does not list Crew Link yet. You need <a href="https://nodejs.org/" rel="noopener">Node.js</a> 22 or newer and a Mac (Windows is planned but not tested).</p>
+    <div class="two">
+      <pre><code>git clone https://github.com/skyplayser/Crew-Link.git
+cd Crew-Link
+npm install
+npm start -- --demo   <span class="c"># demo: 2 days, 3 floors</span></code></pre>
+      <ol class="steps" style="margin-top:0">
+        <li><b>Look around in the demo.</b> It saves nothing: a set is running on Main, a DJ runs over in the Keller, curfew is in about two hours.</li>
+        <li><b>Connect phones.</b> The start screen shows the address and a QR code; ROLES has one per role. Phones must be in the same network.</li>
+        <li><b>Your own night.</b> <i>New event</i>: days, opening hours, curfew, floors – then drag slots into the timeline.</li>
+        <li><b>On the night:</b> tab NOW for the control desk, <i>Big clock</i> for a second screen.</li>
+      </ol>
+    </div>
+    <p style="margin-top:20px">All start options, the structure and the technical notes are in the <a href="https://github.com/skyplayser/Crew-Link#build-from-source">README on GitHub</a>.</p>
+  </section>
+
+  <section id="security">
+    <p class="eyebrow">Security</p>
+    <h2>Show network only.</h2>
+    <ul class="clean">
+      <li><b>No PIN in 0.1.0.</b> Anyone who reaches port 8070 can open every role, including the lead's page with internal names and notes. Switch on the web interface only in the show network or a separate crew Wi-Fi with a password – <b>never in the guest Wi-Fi</b>.</li>
+      <li><b>Off by default.</b> The web interface is only on when the lead chooses <i>Connect phones</i>.</li>
+      <li><b>Unencrypted</b>, no HTTPS – like Art-Net, OSC and the suite chat.</li>
+      <li>The web server only accepts GET/HEAD, checks host and origin and its pages load nothing from outside. If port 8070 is taken, Crew Link says so and keeps the port, so printed QR codes stay valid.</li>
+    </ul>
+    <div class="note info">
+      <p><strong>The curfew in Crew Link is the time you enter.</strong> Crew Link does not know or check permits, conditions or legal closing times – the organiser stays responsible for them.</p>
+      <p><strong>EMERGENCY and Crew Link are not an alarm or safety system.</strong> They do not replace announcements, radios, the fire alarm or the event's safety plan. Messages can get lost or arrive late, and anyone in the same network can send them. Software, networks and devices can fail – keep the printed timetable on the wall.</p>
+    </div>
+  </section>
+
+  <section id="suite">
+    <p class="eyebrow">Part of the Link-Suite</p>
+    <img class="suite-logo for-dark" src="images/link-suite-logo-on-dark.svg" alt="Link-Suite" width="246" height="44">
+    <img class="suite-logo for-light" src="images/link-suite-logo-on-light.svg" alt="Link-Suite" width="246" height="44">
+    <p class="lead">Free programs for event technology that listen instead of control, need no server and stay in the local network. They share the suite chat, EMERGENCY and the same words: show network, booth, suite chat.</p>
+    <div class="sibs">
+      <a class="sib card" href="https://github.com/skyplayser/LJ-Link"><img src="images/lj-link-icon.svg" alt="" width="56" height="56"><div><b>LJ Link</b><span>Shows the lighting jockey what the DJ plays – decks, waveforms, cues, BPM from Pioneer and Denon – and sends the tempo to the light desk.</span></div></a>
+      <a class="sib card" href="https://github.com/skyplayser/LJL-Link"><img src="images/ljl-link-icon.png" alt="" width="56" height="56"><div><b>LJL Link</b><span>Brings the Serato decks of the DJ's Mac into LJ Link, straight from the club's USB stick.</span></div></a>
+      <a class="sib card" href="https://github.com/skyplayser/VJ-LINK"><img src="images/vj-link-icon.svg" alt="" width="56" height="56"><div><b>VJ-Link</b><span>Live visuals run by the light desk, on screens, LED walls and projectors.</span></div></a>
+      <div class="sib card"><img src="images/vd-link-icon.svg" alt="" width="56" height="56"><div><b>VD-Link</b><span>3D light visualizer for Art-Net and sACN – see the show before it is hung. Coming soon.</span></div></div>
+    </div>
+    <div class="soon-list">
+      <span class="pill"><b>In the works:</b></span>
+      <span class="pill"><b>PL Link</b> · patch and power load</span>
+      <span class="pill"><b>NET Link</b> · show network check</span>
+      <span class="pill"><b>dB Link</b> · sound level</span>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Crew Link is free and open source under the Eclipse Public License 2.0, without warranty. Liability under statutory law for intent and gross negligence, for injury to life, body or health and under the German Product Liability Act remains unaffected. It is an independent project and not an official product of, or endorsed by, AlphaTheta / Pioneer DJ, inMusic / Denon DJ, Serato, MA Lighting, Daslight, Artistic Licence or any other maker named, nor of Apple, Google or Microsoft. Apple, macOS, iPhone, iPad and Bonjour are trademarks of Apple Inc.; CDJ is a trademark of AlphaTheta Corporation; Android is a trademark of Google LLC; Windows is a trademark of Microsoft Corporation. All trademarks belong to their owners and are used only to describe compatibility. Art-Net™ Designed by and Copyright Artistic Licence Holdings Ltd. Not related to the LightJockey software by Martin. Big digits in Inter (SIL Open Font License 1.1).</p>
+    <p>© 2026 Philipp Spruck / NEXTPHILM · <a href="https://github.com/skyplayser/Crew-Link">GitHub</a> · <a href="https://github.com/skyplayser/Crew-Link/blob/main/LICENSE">License</a> · <a href="https://github.com/skyplayser/Crew-Link/blob/main/CHANGELOG.md">Changelog</a> · <a href="https://discord.gg/N6DMca4Bjk" rel="noopener">Discord</a> · <a href="de/" hreflang="de">Deutsch</a> · <a href="impressum.html" hreflang="de">Legal notice (Impressum)</a> · <a href="datenschutz.html">Privacy policy</a></p>
+    <p class="credit">Idea SKYPLAYSER/NEXTPHILM<br>Prompted with ❤️ made by Claude</p>
+  </div>
+</footer>
+
+<div class="viewer" id="viewer" role="dialog" aria-label="Picture"><img alt=""></div>
+</body>
+</html>

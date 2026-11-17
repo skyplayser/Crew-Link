@@ -1,0 +1,137 @@
+/* Crew Link – Design-Tokens (Stand 15.11.2026, Design 0.1)
+   Gilt für den Leitstand (Electron) UND die Browser-Seiten (/r/<rolle>, /uhr/<floor>, /oeffentlich, /chat).
+   Flächen, Akzent und Suite-Farben wie VJ-Link (src/renderer/style.css:1-8) und VD-Link (src/style.css:2-8).
+   Tag/Nacht über data-theme="day" | "night" am <html> (wie LJ Link, web/app.js:174) – oder an einem
+   beliebigen Element (Muster zeigen Tag und Nacht nebeneinander). Ohne Attribut gilt Nacht.
+   Keine Webfonts aus dem Netz: die Ziffern-Schrift liegt in assets/fonts/ (OFL, siehe docs/intern/DESIGN.md). */
+
+@font-face {
+  font-family: "Crew Display";
+  src: url("../assets/fonts/InterDisplay-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: block; /* lieber 0,1 s nichts als springende Ziffern */
+}
+
+:root,
+[data-theme="night"] {
+  /* Flächen – exakt wie VJ-Link / VD-Link */
+  --bg: #0C0E13;
+  --panel: #151821;
+  --raise: #1E222E;
+  --line: #2A2F3D;
+  --text: #DCE1EA;
+  --dim: #7E879A;
+  --strong: #F2F3F7;          /* große Ziffern, Namen auf Uhren (Konzept: Text #F2F3F7) */
+  --tile1: #1A1E2A;           /* Kachel-Verlauf der Suite */
+  --tile2: #0D1016;
+  --scrim: rgba(5, 6, 10, .66);
+  --shadow: 0 30px 80px rgba(0, 0, 0, .5);
+
+  /* Akzent: Pink = bedienen (nie Zustand, nie auf Ziffern).
+     Suite-Regel 15.11.2026: gefüllte Pink-Flächen IMMER #FF5C93 mit dunkler Schrift #141821 (6,1:1), auch im Tagmodus.
+     Pink als Schrift, Link, Symbol, Rand, Linie oder Outline: --accent-text (Nacht #FF5C93 = 6,6:1 auf #0C0E13).
+     Token-Namen gelten suite-weit: --accent, --on-accent, --accent-text. */
+  --accent: #FF5C93;          /* nur Füllung */
+  --on-accent: #141821;       /* Schrift und Symbole auf --accent */
+  --accent-text: #FF5C93;      /* Pink als Schrift, Rand, Unterstrich, Fokus-Ring */
+
+  /* Suite-Farben (Zustand und Kategorien) – Namen wie VJ/VD */
+  --live: #FF3B3B;            /* rot: Countdown kritisch / überzogen, Überschneidung */
+  --warn: #FFB020;            /* gelb: Countdown ab 10 min, Hinweis Sperrstunde/Floor-Ende */
+  --ok: #3DDC84;              /* grün: Countdown normal, bereit, verbunden */
+  --info: #22C8F0;            /* cyan: Hinweis, GEÄNDERT, „nächster Slot“ ab Übergabe */
+  --own: #B45CFF;             /* lila: eigene Countdowns */
+  --alarm: #FFD60A;           /* NUR EMERGENCY, immer blinkend + Wort */
+  --on-alarm: #000000;
+  --sA: #FF3B3B; --sB: #FFB020; --sC: #3DDC84; --sD: #22C8F0; --sE: #B45CFF;
+
+  /* Floor-Farben der Reihe nach: Cyan, Lila, Grün, Gelb, Rot, dann von vorn */
+  --floor-1: #22C8F0;
+  --floor-2: #B45CFF;
+  --floor-3: #3DDC84;
+  --floor-4: #FFB020;
+  --floor-5: #FF3B3B;
+
+  --alarm-bg: #1C1A0B;
+
+  /* Schrift */
+  --sans: system-ui, -apple-system, "Segoe UI", sans-serif;          /* wie VJ/VD */
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;       /* Adressen, PINs, kleine Zahlen */
+  --disp: "Crew Display", system-ui, -apple-system, "Segoe UI", sans-serif; /* große Ziffern */
+
+  /* Größen */
+  --fs-xs: 10px;   /* Abschnitts-Label, Großbuchstaben */
+  --fs-s: 11px;    /* Tabs, Pillen, Knöpfe */
+  --fs-m: 13px;    /* Grundtext Leitstand */
+  --fs-l: 15px;    /* Grundtext Handy */
+  --fs-xl: 20px;
+
+  /* Abstände (4er-Raster) */
+  --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px; --sp-5: 20px; --sp-6: 24px; --sp-8: 32px; --sp-10: 40px;
+
+  /* Radien wie VJ/VD: 3–4 Pille/Knopf, 5–8 Karte, 10 Kachel, 14–16 Dialog/Startkarte */
+  --r-xs: 3px; --r-s: 4px; --r-m: 8px; --r-l: 10px; --r-xl: 14px; --r-2xl: 16px;
+
+  color-scheme: dark;
+}
+
+[data-theme="day"] {
+  /* Tagmodus wie LJ Link (web/style.css:16-29): heller Grund, dunklere Zustandsfarben für ≥ 4,5:1 auf Weiß */
+  --bg: #F4F5F8;
+  --panel: #FFFFFF;
+  --raise: #EBEDF2;
+  --line: #D5D9E2;
+  --text: #141821;
+  --dim: #5B6476;
+  --strong: #0C0E13;
+  --tile1: #FFFFFF;
+  --tile2: #F1F2F6;
+  --scrim: rgba(20, 24, 33, .45);
+  --shadow: 0 20px 50px rgba(20, 24, 33, .18);
+
+  /* --accent bleibt #FF5C93 (Füllung, Schrift darauf #141821) */
+  --accent-text: #CC0045;     /* 5,75:1 auf Weiß, 5,27:1 auf #F4F5F8, 4,82:1 auf #E9EBF0 */
+
+  --live: #C81E1E;
+  --warn: #A35F00;
+  --ok: #0B7A43;
+  --info: #0A7A99;
+  --own: #7F3FD0;
+  /* --alarm bleibt #FFD60A (Rand, Fläche) – Text darauf schwarz */
+
+  --floor-1: #0A86A6;
+  --floor-2: #8A3FD6;
+  --floor-3: #16A05A;
+  --floor-4: #B87400;
+  --floor-5: #C81E1E;
+
+  --alarm-bg: #FFF7CC;
+
+  color-scheme: light;
+}
+
+/* Abgeleitete Tokens: in JEDEM Themen-Bereich neu berechnen (var() in Custom Properties wird beim
+   Deklarieren aufgelöst und sonst mit den Nacht-Werten vererbt). */
+:root,
+[data-theme] {
+  --accent-soft: color-mix(in srgb, var(--accent) 16%, var(--panel));   /* Auswahl-Fläche */
+  --info-bg: color-mix(in srgb, var(--info) 14%, var(--panel));
+  --warn-bg: color-mix(in srgb, var(--warn) 14%, var(--panel));
+  --live-bg: color-mix(in srgb, var(--live) 14%, var(--panel));
+  --ok-bg: color-mix(in srgb, var(--ok) 14%, var(--panel));
+  /* Countdown-Zustände: im Code die Bedeutung benutzen, nie die Farbe */
+  --cd-ok: var(--ok);
+  --cd-warn: var(--warn);
+  --cd-crit: var(--live);
+  --cd-next: var(--dim);
+  --cd-next-on: var(--info);
+  --cd-idle: var(--dim);
+  --cd-own: var(--own);
+}
+
+/* Jede Fläche mit eigenem Thema bekommt Grund und Schrift */
+[data-theme] { background: var(--bg); color: var(--text); }
+
+/* Zahlen nie springen lassen */
+.num, .cd, .clock-huge, .m-big, time { font-variant-numeric: tabular-nums; }

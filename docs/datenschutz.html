@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy policy – Crew Link</title>
+<meta name="description" content="Privacy policy for the Crew Link website and a short summary of what the Crew Link program sends.">
+<link rel="canonical" href="https://skyplayser.github.io/Crew-Link/datenschutz.html">
+<link rel="alternate" hreflang="en" href="https://skyplayser.github.io/Crew-Link/datenschutz.html">
+<link rel="alternate" hreflang="de" href="https://skyplayser.github.io/Crew-Link/de/datenschutz.html">
+<link rel="icon" href="images/crew-link-icon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#0C0E13">
+<link rel="stylesheet" href="site.css">
+<script src="site.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap">
+    <a href="./" class="brand"><img src="images/crew-link-icon.svg" alt="" width="34" height="34"><span>Crew Link</span></a>
+    <div class="tools">
+      <button class="chip-btn" id="theme" type="button" aria-label="Switch day / night" title="Day / night"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 0 0 16z" fill="currentColor"/></svg></button>
+      <a class="chip-btn" href="de/datenschutz.html" hreflang="de" lang="de" title="Deutsch">DE</a>
+    </div>
+  </div>
+</header>
+
+<main id="main" class="wrap legal">
+  <p class="eyebrow">Crew Link</p>
+  <h1>Privacy policy</h1>
+  <p class="lead">For the website <code>skyplayser.github.io/Crew-Link</code> and, in short, for the Crew Link program. The <a href="de/datenschutz.html" hreflang="de" lang="de">German version</a> is authoritative.</p>
+
+  <h2>Controller</h2>
+  <p>Philipp Spruck, NEXTPHILM – Party DJ &amp; Eventtechnik, Bürgermeister-Beheim-Straße 49, 63165 Mühlheim am Main, Germany, email <a href="mailto:anfrage@nextphilm.de">anfrage@nextphilm.de</a>. More in the <a href="impressum.html">legal notice (Impressum)</a>.</p>
+
+  <h2>In short</h2>
+  <ul class="clean">
+    <li>This website uses <b>no cookies</b>, no tracking and no analytics.</li>
+    <li>It loads <b>nothing from other servers</b>: no external fonts, no CDNs, no embedded content. Font, pictures and script are on this website.</li>
+    <li>It is hosted on <b>GitHub Pages</b>; GitHub processes technically necessary access data.</li>
+    <li>Only your choice of day or night mode stays stored in your browser.</li>
+  </ul>
+
+  <h2>Hosting on GitHub Pages</h2>
+  <p>The website is provided by GitHub Pages (GitHub, Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA; a Microsoft company). When you open a page, GitHub processes technically necessary data such as IP address, time, the page requested and the browser identifier, to deliver the page and to protect it against abuse (server logs). The legal basis is our legitimate interest in a secure and reliable service (Art. 6(1)(f) GDPR). The transfer to the USA is based on the EU-US Data Privacy Framework, in which GitHub takes part. GitHub decides how long it keeps the access data; we have no access to it. Details: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub's privacy statement</a>.</p>
+
+  <h2>Storage in your browser</h2>
+  <p>Your choice of day or night mode is stored in your browser's storage (localStorage, key <code>crewlink-theme</code>) only when you click the day/night button, and never transmitted. You can delete the entry at any time in your browser settings. No consent is needed for this (§ 25(2) no. 2 TDDDG).</p>
+
+  <h2>Links to other sites</h2>
+  <p>The website links to other services, for example GitHub (source code, releases, the Link-Suite launcher), Discord and the pages of the other Link-Suite programs. Only when you click such a link does your browser open the other site; its own privacy policy applies there.</p>
+
+  <h2>The Crew Link program</h2>
+  <p>Crew Link runs on your computer and in your local network. It has no account, no cloud, no telemetry and no update check, and sends no data to us. In the local network it sends:</p>
+  <ul class="clean">
+    <li><b>Web interface</b> (port 8070, off by default): the timetable to browsers in the show network, unencrypted. Role pages with internal names and notes; big clock and public page with public names only. There is no PIN check in 0.1.0.</li>
+    <li><b>Suite network</b> (multicast, TTL 1, on by default, can be switched off under CONNECT): every 5 s <code>here</code> with program, version, role, web address, event id and day; every second <code>tick</code> with house clock, running day and floors with public names only.</li>
+    <li><b>Suite chat</b> (on together with the suite network, from program start, even if you never open the chat window): every 5 s a presence signal (program, random id, your chat name and position); each message with name, position, text and time. Newcomers get up to the last 20 messages again from every program in the room – also from Crew Link. There is no login and no encryption, and senders can be faked. Every packet carries your computer's IP address (in the local network also the network card's hardware address); anyone listening can see it. Crew Link keeps messages in memory only, never in a file.</li>
+    <li><b>Link-Suite website:</b> only when you click “Get Link-Suite” on the start screen card does your browser open <code>https://skyplayser.github.io/Link-Suite/</code>. <i>Check in NET Link</i> opens NET Link on the same computer and sends nothing over the network.</li>
+    <li><b>Saving:</b> an event is only saved on the computer with your yes. Crew Link's browser pages store nothing (no cookies, no localStorage).</li>
+  </ul>
+  <p>All details are in the <a href="https://github.com/skyplayser/Crew-Link#what-leaves-your-computer">README, section “What leaves your computer”</a>.</p>
+  <p>For the data the program processes in the local network we are not a controller under the GDPR: we only provide the program, receive none of this data and have no access to it. If an organiser, a company or a team uses Crew Link at work, they are usually the controller and the contact for access and erasure requests.</p>
+
+  <h2>Contact by email or phone</h2>
+  <p>If you write to us or call us, we process your details (name, address or number, content) to answer your request (Art. 6(1)(b) or (f) GDPR). We delete them once the request is settled, at the latest after 12 months, unless the law requires us to keep them.</p>
+
+  <h2>Issues on GitHub</h2>
+  <p>Posts in the issues of our repositories are public. We see your GitHub name and your posts and use them only for support and further development. <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub's privacy statement</a> applies.</p>
+
+  <h2>Discord server and LJ Link Bot</h2>
+  <p>For support and exchange we run a Discord server. Discord is provided by Discord Inc. (444 De Haro Street, Suite 200, San Francisco, CA 94107, USA); its <a href="https://discord.com/privacy">privacy policy</a> and <a href="https://discord.com/terms">terms</a> apply. Discord processes, among other things, your username, your messages and technical connection data, also in the USA. As server operator we see your username, your roles and the messages you write on the server. Legal basis: our legitimate interest in a support and community platform (Art. 6(1)(f) GDPR).</p>
+  <p>The <em>LJ Link Bot</em> runs on the server. What it reads, stores and passes on (AI replies via Anthropic's Claude API, moderation, retention, objecting with the role “Kein Bot”) is described in full in the <a href="https://skyplayser.github.io/VJ-LINK/datenschutz.html">VJ-Link privacy policy</a>; it is the same server and the same bot.</p>
+
+  <h2>Right to object</h2>
+  <p><strong>Where data is processed on the basis of Art. 6(1)(f) GDPR (server logs at GitHub Pages, Discord), you can object at any time on grounds relating to your particular situation (Art. 21 GDPR).</strong></p>
+  <h2>Your rights</h2>
+  <p>You have the right of access, rectification, erasure, restriction of processing, data portability and objection (Art. 15–21 GDPR), and the right to lodge a complaint with a data protection supervisory authority, for example the Hessian Commissioner for Data Protection and Freedom of Information. As we receive no personal data through this website ourselves, requests about the access data at GitHub go to GitHub.</p>
+
+  <p class="stand">As of November 2026</p>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>© 2026 Philipp Spruck / NEXTPHILM · <a href="./">Crew Link</a> · <a href="https://github.com/skyplayser/Crew-Link">GitHub</a> · <a href="de/datenschutz.html" hreflang="de">Deutsch</a> · <a href="impressum.html" hreflang="de">Legal notice (Impressum)</a> · <a href="datenschutz.html" aria-current="page">Privacy policy</a></p>
+  </div>
+</footer>
+</body>
+</html>

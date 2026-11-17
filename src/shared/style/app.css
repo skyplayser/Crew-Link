@@ -1,0 +1,77 @@
+/* Crew Link – Ergänzungen zu tokens.css und components.css (Design 0.1), nur Aufbau des Programms:
+   Fensterhöhe, Druckansicht (A4), Bildschirm-wach-Video, kleine Hilfen. Keine neuen Farben. */
+html,body{height:100%}
+body{overflow:hidden}
+.app-root{height:100vh}
+.shell{height:100vh}
+.tab-content{flex:1;min-height:0;overflow:auto;display:flex;flex-direction:column}
+.tab-content > .main-grid{flex:1;min-height:0}
+.tab-content > .conn-split,.tab-content > .now-grid{align-content:start}
+.lock-btn.holding{outline:2px solid var(--warn);outline-offset:2px}
+.workhead .seg{width:auto}
+.days .day{font:inherit;color:inherit}
+.slot.gap[aria-hidden]{pointer-events:none}
+.slot b .tag{flex:none}
+.notices:empty{display:none}
+.toast[hidden]{display:none}
+.conn-head .sq{margin-right:2px}
+.role-qr > div{display:grid;gap:6px;min-width:0}
+.side .field select,.dayrows select{background:var(--raise);border:1px solid var(--line);border-radius:var(--r-s);color:var(--text);padding:6px 8px}
+.dayrows .input.time{min-width:0}
+.web-off{flex-wrap:wrap}
+.clock-page{margin:0;overflow:hidden;cursor:default}
+.clock-page #app{height:100vh}
+.clock-page .clock-band[data-notice]{cursor:pointer}
+
+/* Bildschirm wach (Herkunft LJ Link web/style.css:379): 2 × 2 px, fast unsichtbar, nie display:none */
+.keep-awake-video{position:fixed;left:0;bottom:0;width:2px;height:2px;opacity:.01;pointer-events:none;z-index:2147483647;margin:0;padding:0;border:0;background:transparent}
+
+/* Handy-Seiten: ganze Höhe scrollbar */
+body.web{overflow:auto}
+body.web.clock,body.web.public{overflow:hidden}
+.m-awake{display:block;width:100%;border:0;border-bottom:1px dashed var(--line);background:var(--panel);color:var(--text);padding:8px 16px;font-size:14px;text-align:center;cursor:pointer}
+.m-roles a.m-rolebtn{text-decoration:none}
+.m-sheet .seg{flex:none}
+.pub-screen .pub-foot:empty{display:none}
+.clock-menu{position:fixed;right:16px;top:16px;z-index:50;display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+
+/* ------------------------------------------------------------------ Druckansicht (A4, schwarz auf weiß) */
+.print-view{position:fixed;inset:0;z-index:700;background:var(--bg);overflow:auto;display:flex;flex-direction:column}
+.print-bar{position:sticky;top:0;display:flex;align-items:center;gap:10px;padding:10px 16px;background:var(--panel);border-bottom:1px solid var(--line)}
+.print-sheets{display:grid;gap:20px;justify-items:center;padding:20px}
+.sheet{width:210mm;min-height:297mm;background:#fff;color:#000;padding:16mm 14mm;box-shadow:0 10px 30px rgba(0,0,0,.4);font:12pt/1.35 var(--sans);display:flex;flex-direction:column;gap:8mm}
+.sheet h1{margin:0;font:800 22pt var(--disp)}
+.sheet h2{margin:0;font:800 18pt var(--disp);display:flex;align-items:center;gap:8px}
+.sheet header p{margin:2mm 0 0;font-size:12pt}
+.sheet table{border-collapse:collapse;width:100%}
+.sheet th,.sheet td{border-bottom:1px solid #999;padding:2mm 3mm;text-align:left;color:#000;background:#fff;white-space:normal}
+.sheet th{font:700 9pt var(--sans);letter-spacing:.06em;text-transform:uppercase}
+.sheet table.big td{font:700 20pt var(--sans);padding:4mm 3mm}
+.sheet table.big td.time{font:800 20pt var(--disp);font-variant-numeric:tabular-nums;white-space:nowrap;width:1%}
+.sheet footer{margin-top:auto;font-size:9pt;color:#333}
+.sheet .sq{width:5mm;height:5mm;border:1px solid #000}
+.print-qr{display:grid;grid-template-columns:repeat(2,1fr);gap:8mm}
+.print-qr h3{margin:0 0 2mm;font-size:14pt}
+.print-qr .qr.big{width:45mm;height:45mm;padding:0}
+.print-qr p{margin:1mm 0;font-size:10pt;overflow-wrap:anywhere}
+.print-qr .pin code{font:800 16pt var(--mono);letter-spacing:.1em;color:#000}
+@media print{
+  @page{size:A4;margin:0}
+  html,body{height:auto;overflow:visible;background:#fff}
+  body > *:not(.print-view){display:none!important}
+  .print-view{position:static;background:#fff;overflow:visible;display:block}
+  .print-bar{display:none}
+  .print-sheets{display:block;padding:0}
+  .sheet{box-shadow:none;page-break-after:always;break-after:page;width:auto;min-height:0;height:296mm}
+}
+
+/* ROLLEN: Karten breit genug für das Chat-Segment */
+.roles{grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
+.role-card{min-width:0}
+.role-card .seg button{padding:5px 6px}
+
+/* Programm-Intro (gemeinsamer Baustein): Fläche = Hintergrund von Crew Link */
+.lsi-layer{--lsi-bg:var(--bg);--lsi-dim:var(--dim);--lsi-line:var(--line)}
+/* Art-Leiste im Slot-Bereich: auf Englisch passte „Break“ nicht ganz (17.11.2026) – engere Knöpfe, notfalls zweite Zeile */
+.field .seg{flex-wrap:wrap}
+.field .seg button{padding:5px 7px}

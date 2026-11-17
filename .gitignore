@@ -1,0 +1,11 @@
+node_modules/
+dist/
+release/
+build/license.txt
+shots/
+*.log
+.DS_Store
+.tmp-*
+# interne Unterlagen (Konzept, Recherche, QA, Rechtsprüfung, Testplan): nicht im Repo, nicht auf GitHub Pages (wie VD-Link)
+docs/intern/
+.claude/

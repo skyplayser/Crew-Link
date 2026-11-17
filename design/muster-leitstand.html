@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="de" data-theme="night">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crew Link – Muster Leitstand</title>
+<!-- Statisches Muster (Design 0.1, 15.11.2026). Texte fest, im Programm über i18n (Schlüssel in docs/DESIGN.md).
+     Screenshot: cd /Users/serato/VD-Link && npx electron /Users/serato/Link-Suite/_tools/sheet-file.cjs \
+       /Users/serato/Crew-Link/design/muster-leitstand.html /Users/serato/Crew-Link/design/screens/leitstand.png 1520 -->
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="components.css">
+<style>
+  /* nur für das Muster-Blatt */
+  body{padding:28px 40px 60px;width:1520px}
+  .mu-h1{display:flex;align-items:center;gap:14px;font:800 26px var(--disp);margin:0 0 4px}
+  .mu-h1 img{height:30px}
+  .mu-sub{color:var(--dim);margin:0 0 8px;font-size:13px}
+  .mu-label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);font-weight:700;margin:34px 0 10px}
+  .mu-win{position:relative;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.45);background:var(--bg)}
+  .mu-win .start,.mu-win .modal-back{position:absolute}
+  .mu-win.h-start{height:820px}
+  .mu-row{display:grid;gap:24px;align-items:start}
+  .mu-cap{color:var(--dim);font-size:12px;margin:8px 0 0}
+  .mu-states{display:flex;flex-wrap:wrap;gap:10px}
+  .mu-state{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:10px 14px;display:grid;gap:4px;min-width:150px}
+  .mu-state .cd{font-size:34px}
+  .mu-state small{color:var(--dim);font-size:11px}
+</style>
+</head>
+<body>
+
+<h1 class="mu-h1"><img src="../assets/symbol.svg" alt="">Crew Link · Muster Leitstand</h1>
+<p class="mu-sub">Design 0.1 · 15.11.2026 · Tokens wie VJ-Link/VD-Link · Hausuhr <b class="num">Sa/So 02:46:48</b> · Sperrstunde 05:00 · <b style="color:var(--accent-text)">Pink = bedienen</b> · <b style="color:var(--ok)">Grün</b>/<b style="color:var(--warn)">Gelb</b>/<b style="color:var(--live)">Rot</b> = Countdown · <b style="color:var(--info)">Cyan = Hinweis</b> · <b style="color:var(--alarm)">Gelb blinkend = nur EMERGENCY</b></p>
+
+<!-- ================================================================== 1 Startbildschirm -->
+<div class="mu-label">1 · Startbildschirm (Nacht) – hier endet die Startanimation ?app=cr: das Zeichen gleitet an seinen Platz links vom Schriftzug</div>
+<div class="mu-win h-start">
+  <div class="start" role="dialog" aria-label="Crew Link Start">
+    <div class="start-card">
+      <div class="start-left">
+        <div class="start-logo" id="start-logo"><img class="on-dark" src="../assets/logo-horizontal-on-dark.svg" alt="Crew Link"><img class="on-light" src="../assets/logo-horizontal-on-light.svg" alt="Crew Link"></div>
+        <p class="start-tag" data-i18n="start.tag">Ablauf der Nacht: wer wann spielt, Countdown bis Set-Ende und Sperrstunde – eine Uhr für alle.</p>
+        <div class="start-grid">
+          <button class="start-btn primary" data-icon="play"><span class="start-btxt"><b data-i18n="start.continue">Weiter</b><small>Wochenende Club Beispiel · Tag 2 von 3 (Sa 15.11.) läuft · Sperrstunde 05:00</small></span></button>
+          <button class="start-btn" data-icon="newEvent"><span class="start-btxt"><b data-i18n="start.new">Neue Veranstaltung</b><small data-i18n="start.new.sub">ein oder mehrere Tage, Floors</small></span></button>
+          <button class="start-btn" data-icon="template"><span class="start-btxt"><b data-i18n="start.template">Vorlage</b><small data-i18n="start.template.sub">„Jeden Samstag“, „Festival 3 Tage“</small></span></button>
+          <button class="start-btn" data-icon="open"><span class="start-btxt"><b data-i18n="start.open">Veranstaltung öffnen</b><small>.crewlink · zuletzt: Open Air 2027</small></span></button>
+          <button class="start-btn" data-icon="clock"><span class="start-btxt"><b data-i18n="start.clock">Große Uhr</b><small data-i18n="start.clock.sub">Vollbild für Booth und DJ-Pult</small></span></button>
+          <button class="start-btn" data-icon="phone"><span class="start-btxt"><b data-i18n="start.phones">Handys verbinden</b><small data-i18n="start.phones.sub">QR-Code je Rolle, zum Ausdrucken</small></span></button>
+          <button class="start-btn" data-icon="net"><span class="start-btxt"><b data-i18n="start.suite">Suite im Netz</b><small data-i18n="start.suite.sub">LJ Link, LJL Link, VJ-Link, Chat</small></span></button>
+        </div>
+      </div>
+      <div class="start-right">
+        <div class="start-net">
+          <h3><span data-i18n="start.web">So finden Handys Crew Link</span><span class="spacer"></span><label style="display:flex;align-items:center;gap:8px;letter-spacing:0;text-transform:none;font-size:12px;color:var(--text);font-weight:600"><span data-i18n="start.web.switch">Weboberfläche</span> <input type="checkbox" class="switch" checked aria-label="Weboberfläche"></label></h3>
+          <div class="start-web">
+            <span class="qr" data-qr="http://192.168.1.20:8070/"></span>
+            <div style="display:grid;gap:4px">
+              <span class="hint" data-i18n="start.web.open">Im Show-Netz im Browser öffnen</span>
+              <span class="ipl">192.168.1.20:8070</span>
+              <span class="hint" data-i18n="start.web.note">Keine App, kein Konto, keine Cloud. Ab Werk aus – „Handys verbinden“ gibt sie frei.</span>
+              <span class="live ok" style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--ok)"><span class="dot"></span>an · 14 Handys verbunden</span>
+            </div>
+          </div>
+        </div>
+        <div class="start-net">
+          <h3 data-i18n="start.suite.title">Suite im Netz</h3>
+          <div class="live ok"><span class="dot"></span><span>LJ Link · Booth Main</span><small>Hausuhr +0,02 s</small></div>
+          <div class="live ok"><span class="dot"></span><span>LJ Link · Booth Keller</span><small>±0,03 s</small></div>
+          <div class="live ok"><span class="dot"></span><span>LJL Link · DJ Nova (Main)</span><small>±0,03 s</small></div>
+          <div class="live ok"><span class="dot"></span><span>VJ-Link · Videowand Main</span><small>±0,01 s</small></div>
+          <div class="live off"><span class="dot"></span><span>Suite-Chat</span><small>5 Programme · 3 Handys</small></div>
+        </div>
+        <div class="start-net">
+          <h3 data-i18n="start.time">Zeitquelle</h3>
+          <div class="live ok"><span class="dot"></span><span>Systemuhr</span><small>Hausuhr 02:46:48</small></div>
+          <div class="live off"><span class="dot"></span><span>Timecode</span><small>Art-Net empfangen, nicht gewählt</small></div>
+        </div>
+        <div class="start-extra">
+          <div class="start-lang"><span data-icon="globe" class="ico" style="width:18px;height:18px"></span><span data-i18n="start.lang">Sprache</span><div class="seg"><button class="on">Deutsch</button><button>English</button></div></div>
+          <div class="start-lang"><span data-icon="moon" class="ico" style="width:18px;height:18px"></span><span data-i18n="start.theme">Darstellung</span><div class="seg"><button>Tag</button><button class="on">Nacht</button><button>System</button></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="start-foot">
+      <label class="start-check"><input type="checkbox" class="check" checked> <span data-i18n="start.showOnStart">Beim Start zeigen</span></label>
+      <span class="start-foot-r"><button class="linkish" data-i18n="start.report">Fehler melden</button> · Crew Link 0.1 · EPL-2.0</span>
+    </div>
+  </div>
+</div>
+
+<!-- ================================================================== 2 TIMETABLE -->
+<div class="mu-label">2 · Hauptfenster, Tab TIMETABLE (Editor während der Nacht) – Nova ausgewählt</div>
+<div class="mu-win">
+  <div class="shell">
+    <header class="top">
+      <div class="logo"><img src="../assets/symbol.svg" alt="">Crew Link</div>
+      <nav class="tabs" role="tablist">
+        <button role="tab" data-i18n="tab.now">JETZT</button>
+        <button role="tab" class="on" aria-selected="true" data-i18n="tab.timetable">TIMETABLE</button>
+        <button role="tab" data-i18n="tab.clock">UHR</button>
+        <button role="tab" data-i18n="tab.roles">ROLLEN</button>
+        <button role="tab" data-i18n="tab.signals">SIGNALE</button>
+        <button role="tab" data-i18n="tab.connect">VERBINDEN</button>
+      </nav>
+      <div class="status">
+        <span class="pill ok"><span class="dot"></span>Show-Netz · 7 Geräte</span>
+        <span class="pill ok"><span class="dot"></span>Web · 14 Handys</span>
+      </div>
+      <span class="spacer"></span>
+      <div class="hclock"><b class="num">02:46:48</b><small>Hausuhr · Systemuhr</small></div>
+      <button class="btn icon-btn chat-btn" aria-label="Crew-Chat" data-icon="chat"><span class="chat-unread">2</span></button>
+      <button class="btn icon-btn lock-btn" aria-label="Sperrmodus" data-icon="unlock"></button>
+      <button class="btn icon-btn" aria-label="Einstellungen" data-icon="settings"></button>
+    </header>
+
+    <div class="curfew-bar">
+      <div class="curfew-main"><span class="cd-word">Sa · Sperrstunde <b>05:00</b></span><span class="cd" style="color:var(--strong)">noch 2:13:12</span></div>
+      <span class="pill plain">Einlassstopp <b>04:00</b> · in 1:13:12</span>
+      <span class="pill plain">Letzte Runde <b>04:30</b> · in 1:43:12</span>
+      <span class="pill plain">Terrasse <b>01:00</b> · vorbei</span>
+      <span class="spacer"></span>
+      <button class="btn" data-icon="pause"><span data-i18n="curfew.pause">Nacht anhalten</span></button>
+      <button class="btn" data-icon="bulb"><span data-i18n="curfew.houselight">Saallicht</span></button>
+    </div>
+
+    <div class="main-grid">
+      <div class="workarea">
+        <div class="workhead">
+          <h1>Wochenende Club Beispiel</h1><span class="muted">3 Tage · 3 Floors · 26 Slots</span>
+          <span class="spacer"></span>
+          <div class="seg" style="width:auto"><button class="on">Zeitleiste</button><button>Liste</button></div>
+          <button class="btn" data-icon="print">Ausdruck</button>
+          <button class="btn" data-icon="plus">Floor</button>
+          <button class="btn primary" data-icon="plus">Slot</button>
+        </div>
+
+        <div class="days" role="tablist" aria-label="Tage">
+          <button class="day" role="tab"><b>FR 14.11.</b><small>22:00–06:00 · SP 05:00</small></button>
+          <button class="day on" role="tab" aria-selected="true"><b>SA 15.11. <span class="running"><span class="dot"></span>läuft</span></b><small>22:00–06:00 · SP 05:00</small></button>
+          <button class="day" role="tab"><b>SO 16.11.</b><small>Open Air 14:00–22:00</small></button>
+          <button class="day all" role="tab"><b>ALLE TAGE</b><small>Übersicht</small></button>
+          <span class="spacer"></span>
+          <button class="btn ghost" data-icon="copy"><span data-i18n="days.copy">Tag kopieren</span></button>
+          <button class="btn ghost" data-icon="plus"><span data-i18n="days.add">Tag</span></button>
+        </div>
+
+        <div class="tl">
+          <div class="tl-scale"><div></div><div><span style="left:0">22:00</span><span style="left:12.5%">23:00</span><span style="left:25%">00:00</span><span style="left:37.5%">01:00</span><span style="left:50%">02:00</span><span style="left:62.5%">03:00</span><span style="left:75%">04:00</span><span style="left:87.5%">05:00</span><span style="left:100%">06:00</span></div></div>
+
+          <div class="tl-row" style="--c:var(--floor-1)">
+            <div class="tl-floor"><b><span class="sq"></span>Main</b><small>Floor 1 · bis Sperrstunde</small></div>
+            <div class="tl-lane">
+              <div class="slot done" style="--s:0;--e:25"><b>Lena Sol</b><small>22:00–00:00</small></div>
+              <div class="slot done" style="--s:25;--e:37.5"><b>Marek</b><small>00:00–01:00</small></div>
+              <div class="slot live sel" style="--s:37.5;--e:62.5" aria-selected="true"><b>Nova</b><small>01:00–03:00</small><span class="cd ok">13:12</span></div>
+              <div class="slot next" style="--s:62.5;--e:87.5"><b>Kira <span class="tag ok">✓ bereit</span></b><small>03:00–05:00</small></div>
+            </div>
+          </div>
+
+          <div class="tl-row" style="--c:var(--floor-2)">
+            <div class="tl-floor"><b><span class="sq"></span>Keller</b><small>Floor 2 · bis Sperrstunde</small></div>
+            <div class="tl-lane">
+              <div class="tl-closed" style="--s:0;--e:12.5"><span>zu</span></div>
+              <div class="slot done" style="--s:12.5;--e:43.75"><b>Duo Pulse B2B</b><small>23:00–01:30</small></div>
+              <div class="slot over" style="--s:43.75;--e:58.33"><b>Tom Riva</b><small>01:30–02:40</small><span class="cd over">+6:48</span></div>
+              <div class="slot next" style="--s:58.33;--e:87.5"><b>Mara Lux <span class="tag fill-info">Geändert</span></b><small>02:40–05:00</small><span class="pub">öffentlich: Special Guest</span></div>
+            </div>
+          </div>
+
+          <div class="tl-row" style="--c:var(--floor-3)">
+            <div class="tl-floor"><b><span class="sq"></span>Terrasse</b><small>Floor 3 · Ende 01:00</small></div>
+            <div class="tl-lane">
+              <div class="slot done" style="--s:0;--e:25"><b>Sunny K</b><small>22:00–00:00</small></div>
+              <div class="slot gap" style="--s:25;--e:31.25" title="Umbau 00:00–00:30"><b>Umbau</b></div>
+              <div class="slot done" style="--s:31.25;--e:37.5" title="Aurora · Live 00:30–01:00"><b>Aurora</b><small>Live</small></div>
+              <div class="tl-closed" style="--s:37.5;--e:100"><span>Floor-Ende 01:00 (Auflage Nachbarn)</span></div>
+            </div>
+          </div>
+
+          <div class="tl-line now" style="--at:59.75"><span>JETZT 02:46</span></div>
+          <div class="tl-line curfew" style="--at:87.5"><span>SPERRSTUNDE 05:00</span></div>
+        </div>
+
+        <div class="checks">
+          <div class="card ok"><b><span class="ico" data-icon="check" style="color:var(--ok)"></span>Prüfung</b>Keine Überschneidung · keine Lücke auf Main und Keller · alle Slots enden spätestens zur Sperrstunde.</div>
+          <div class="card warnc"><b><span class="ico" data-icon="alert" style="color:var(--warn)"></span>Keller: Alles verschieben?</b>Tom Riva überzieht. „Alles verschieben“ ließe Mara Lux bis 05:07 laufen – 7 min über Sperrstunde.</div>
+          <div class="card"><b><span class="ico" data-icon="clock" style="color:var(--dim)"></span>Hausuhr</b>Systemuhr · keine Zeitumstellung in dieser Nacht · 21 Geräte, größte Abweichung ±0,08 s.</div>
+        </div>
+      </div>
+
+      <aside class="side" aria-label="Slot bearbeiten">
+        <h3><span class="sq" style="--c:var(--floor-1)"></span>Slot · Main</h3>
+        <label class="field"><span data-i18n="slot.name">Name (intern)</span><input value="Nova"></label>
+        <label class="field"><span data-i18n="slot.public">Öffentlicher Name</span><input placeholder="gleich wie intern"><span class="hint" data-i18n="slot.public.hint">Für Videowand und Seite „Öffentlich“. Secret Guest: „Special Guest“.</span></label>
+        <div class="two">
+          <label class="field"><span data-i18n="slot.start">Beginn</span><input class="time" value="01:00"></label>
+          <label class="field"><span data-i18n="slot.end">Ende</span><input class="time" value="03:00"></label>
+        </div>
+        <div class="field"><span data-i18n="slot.kind">Art</span><div class="seg"><button class="on">DJ</button><button>Live</button><button>B2B</button><button>Umbau</button><button>Pause</button></div></div>
+        <label class="field"><span data-i18n="slot.note">Notiz für die Crew</span><textarea>Bringt eigenen Controller, Kanal 3+4</textarea><span class="hint" data-i18n="slot.note.hint">Sichtbar für die Crew im Show-Netz – nichts Vertrauliches.</span></label>
+        <div class="side-live">
+          <div class="row"><span class="cd-word">läuft · Set-Ende</span><span class="cd ok">13:12</span></div>
+          <div class="hint">Danach <b style="color:var(--text)">Kira</b> 03:00 · <span style="color:var(--ok);font-weight:700">✓ bereit (02:41)</span></div>
+        </div>
+        <div class="actions">
+          <button class="btn" data-i18n="slot.extend">+5 min</button>
+          <button class="btn" data-i18n="slot.handover">Übergabe jetzt</button>
+          <button class="btn" data-i18n="slot.shortenNext">Nächsten kürzen</button>
+          <button class="btn" data-i18n="slot.shiftAll">Alles verschieben</button>
+        </div>
+        <button class="btn danger small" style="justify-self:start" data-i18n="slot.delete">Slot löschen</button>
+      </aside>
+    </div>
+
+    <div class="notices" aria-label="Letzte Hinweise">
+      <span class="notice"><time>02:46</time>Keller überzogen <span class="t-over">+6:48</span> → Leitung, Booth Keller</span>
+      <span class="notice"><time>02:41</time>Kira ist bereit (Main)</span>
+      <span class="notice"><time>02:30</time>Du spielst in 30 min → Kira</span>
+      <span class="notice info"><time>02:12</time><span class="t-info">GEÄNDERT</span> Keller: Mara Lux 02:40 statt 03:00</span>
+      <span class="notice"><time>00:50</time>Terrasse: Floor-Ende in 10 min</span>
+    </div>
+  </div>
+</div>
+
+<!-- ================================================================== 3 JETZT -->
+<div class="mu-label">3 · Tab JETZT – laufender Tag ohne Bearbeiten, große Countdowns je Floor (für den Leitstand während der Show)</div>
+<div class="mu-win">
+  <header class="top">
+    <div class="logo"><img src="../assets/symbol.svg" alt="">Crew Link</div>
+    <nav class="tabs"><button class="on">JETZT</button><button>TIMETABLE</button><button>UHR</button><button>ROLLEN</button><button>SIGNALE</button><button>VERBINDEN</button></nav>
+    <div class="status"><span class="pill ok"><span class="dot"></span>Show-Netz · 7 Geräte</span><span class="pill ok"><span class="dot"></span>Web · 14 Handys</span></div>
+    <span class="spacer"></span>
+    <div class="hclock"><b class="num">02:46:48</b><small>Hausuhr · Systemuhr</small></div>
+    <button class="btn icon-btn chat-btn" data-icon="chat"><span class="chat-unread">2</span></button>
+    <button class="btn icon-btn lock-btn on" aria-pressed="true" data-icon="lock"></button>
+    <button class="btn icon-btn" data-icon="settings"></button>
+  </header>
+  <div class="curfew-bar">
+    <div class="curfew-main"><span class="cd-word">Sa · Sperrstunde <b>05:00</b></span><span class="cd" style="color:var(--strong)">noch 2:13:12</span></div>
+    <span class="pill plain">Einlassstopp <b>04:00</b> · in 1:13:12</span>
+    <span class="pill plain">Letzte Runde <b>04:30</b> · in 1:43:12</span>
+    <span class="spacer"></span>
+    <span class="pill warn">Sperrmodus · Schloss 1 s halten</span>
+    <button class="btn" data-icon="pause">Nacht anhalten</button>
+    <button class="btn" data-icon="bulb">Saallicht</button>
+  </div>
+  <div class="now-grid">
+    <section class="now-floor" style="--c:var(--floor-1)">
+      <div class="head"><b><span class="sq"></span>Main</b><span class="pill">Floor 1</span></div>
+      <span class="cd-word">Set-Ende · <b>Nova</b></span>
+      <span class="cd ok">13:12</span>
+      <span class="after">Danach <b>Kira</b> 03:00–05:00 · <span style="color:var(--ok);font-weight:700">✓ bereit</span> · Übergabe ab 02:50</span>
+      <div class="actions"><button class="btn">+5 min</button><button class="btn">Übergabe jetzt</button></div>
+    </section>
+    <section class="now-floor over" style="--c:var(--floor-2)">
+      <div class="head"><b><span class="sq"></span>Keller</b><span class="tag err">überzogen</span></div>
+      <span class="cd-word">Set-Ende · <b>Tom Riva</b> · geplant 02:40</span>
+      <span class="cd over">+6:48</span>
+      <span class="after">Danach <b>Mara Lux</b> (öffentlich: Special Guest) · noch nicht bereit</span>
+      <div class="actions"><button class="btn">Weiter so</button><button class="btn">Nächsten kürzen</button><button class="btn">Alles verschieben</button><button class="btn primary">Übergabe jetzt</button></div>
+    </section>
+    <section class="now-floor closed" style="--c:var(--floor-3)">
+      <div class="head"><b><span class="sq"></span>Terrasse</b><span class="tag dim">beendet</span></div>
+      <span class="cd-word">Floor-Ende · 01:00</span>
+      <span class="cd idle">vorbei</span>
+      <span class="after">Sonntag Open Air ab 14:00</span>
+    </section>
+  </div>
+  <div class="notices"><span class="notice"><time>02:46</time>Keller überzogen <span class="t-over">+6:48</span> → Leitung, Booth Keller</span><span class="notice"><time>02:41</time>Kira ist bereit (Main)</span></div>
+</div>
+
+<!-- ================================================================== 4 ROLLEN -->
+<div class="mu-label">4 · Tab ROLLEN – QR je Rolle, PIN-Anzeige, Chat je Rolle (Chat ab Phase 2, Feld schon da)</div>
+<div class="mu-win">
+  <header class="top">
+    <div class="logo"><img src="../assets/symbol.svg" alt="">Crew Link</div>
+    <nav class="tabs"><button>JETZT</button><button>TIMETABLE</button><button>UHR</button><button class="on">ROLLEN</button><button>SIGNALE</button><button>VERBINDEN</button></nav>
+    <div class="status"><span class="pill ok"><span class="dot"></span>Show-Netz · 7 Geräte</span><span class="pill ok"><span class="dot"></span>Web · 14 Handys</span></div>
+    <span class="spacer"></span>
+    <div class="hclock"><b class="num">02:46:48</b><small>Hausuhr · Systemuhr</small></div>
+    <button class="btn icon-btn chat-btn" data-icon="chat"></button><button class="btn icon-btn lock-btn" data-icon="unlock"></button><button class="btn icon-btn" data-icon="settings"></button>
+  </header>
+  <div style="padding:14px 16px 18px;display:grid;gap:12px">
+    <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+      <label style="display:flex;align-items:center;gap:8px;font-weight:600"><input type="checkbox" class="switch" checked> Weboberfläche an</label>
+      <span class="ipl">http://192.168.1.20:8070</span>
+      <span class="muted small">gilt für diese Veranstaltung · unverschlüsselt: wer im Netz ist, kann mitlesen</span>
+      <span class="spacer"></span>
+      <button class="btn" data-icon="print">QR-Codes drucken (ohne PINs)</button>
+      <button class="btn" data-icon="print">Blatt für die Leitung (mit PINs)</button>
+    </div>
+    <div class="roles">
+      <div class="role-card">
+        <div class="head"><span class="ico" data-icon="lead"></span><b>Leitung</b><span class="spacer"></span><span class="tag dim">PIN</span></div>
+        <div class="role-qr"><span class="qr" data-qr="http://192.168.1.20:8070/r/leitung"></span><div style="display:grid;gap:6px"><span class="url">/r/leitung</span><span class="pin"><code>••••••</code><button class="linkish">PIN zeigen</button></span><span class="hint">2 Geräte</span></div></div>
+        <div class="field"><span>Chat</span><div class="seg"><button>nie</button><button>Hinweise</button><button>lesen</button><button class="on">schreiben</button></div></div>
+      </div>
+      <div class="role-card">
+        <div class="head"><span class="ico" data-icon="booth"></span><b>Booth</b><span class="spacer"></span><span class="tag dim">PIN</span></div>
+        <div class="role-qr"><span class="qr" data-qr="http://192.168.1.20:8070/r/booth"></span><div style="display:grid;gap:6px"><span class="url">/r/booth</span><span class="pin"><code>482 913</code><button class="linkish">verbergen</button></span><span class="hint">je Floor: /r/booth/keller</span></div></div>
+        <div class="field"><span>Chat</span><div class="seg"><button>nie</button><button>Hinweise</button><button>lesen</button><button class="on">schreiben</button></div></div>
+      </div>
+      <div class="role-card">
+        <div class="head"><span class="ico" data-icon="dj"></span><b>DJ</b><span class="spacer"></span><span class="tag ok">ohne PIN</span></div>
+        <div class="role-qr"><span class="qr" data-qr="http://192.168.1.20:8070/r/dj"></span><div style="display:grid;gap:6px"><span class="url">/r/dj</span><span class="hint">je DJ: /r/dj/kira</span><span class="hint">5 Geräte</span></div></div>
+        <div class="field"><span>Chat</span><div class="seg"><button>nie</button><button class="on">Hinweise</button><button>lesen</button><button>schreiben</button></div></div>
+      </div>
+      <div class="role-card">
+        <div class="head"><span class="ico" data-icon="tech"></span><b>Technik</b><span class="spacer"></span><span class="tag ok">ohne PIN</span></div>
+        <div class="role-qr"><span class="qr" data-qr="http://192.168.1.20:8070/r/technik"></span><div style="display:grid;gap:6px"><span class="url">/r/technik</span><span class="hint">2 Geräte</span></div></div>
+        <div class="field"><span>Chat</span><div class="seg"><button>nie</button><button>Hinweise</button><button>lesen</button><button class="on">mit Chat-PIN</button></div></div>
+      </div>
+      <div class="role-card">
+        <div class="head"><span class="ico" data-icon="security"></span><b>Security</b><span class="spacer"></span><span class="tag dim">PIN für EMERGENCY</span></div>
+        <div class="role-qr"><span class="qr" data-qr="http://192.168.1.20:8070/r/security"></span><div style="display:grid;gap:6px"><span class="url">/r/security</span><span class="pin"><code>••••••</code><button class="linkish">PIN zeigen</button></span><span class="hint">3 Geräte</span></div></div>
+        <div class="field"><span>Chat</span><div class="seg"><button>nie</button><button class="on">Hinweise</button><button>lesen</button><button>schreiben</button></div></div>
+      </div>
+      <div class="role-card">
+        <div class="head"><span class="ico" data-icon="bar"></span><b>Bar</b><span class="spacer"></span><span class="tag ok">ohne PIN</span></div>
+        <div class="role-qr"><span class="qr" data-qr="http://192.168.1.20:8070/r/bar"></span><div style="display:grid;gap:6px"><span class="url">/r/bar</span><span class="hint">1 Gerät · nur lesen</span></div></div>
+        <div class="field"><span>Chat</span><div class="seg"><button>nie</button><button class="on">Hinweise</button><button>lesen</button><button>schreiben</button></div></div>
+      </div>
+      <div class="role-card">
+        <div class="head"><span class="ico" data-icon="public"></span><b>Öffentlich</b><span class="spacer"></span><span class="tag ok">ohne PIN</span></div>
+        <div class="role-qr"><span class="qr" data-qr="http://192.168.1.20:8070/oeffentlich"></span><div style="display:grid;gap:6px"><span class="url">/oeffentlich</span><span class="hint">nur öffentliche Namen · kein Chat, kein EMERGENCY</span></div></div>
+      </div>
+      <div class="role-card">
+        <div class="head"><span class="ico" data-icon="chat"></span><b>Crew-Chat</b><span class="spacer"></span><span class="tag dim">Phase 2</span></div>
+        <div class="role-qr"><span class="qr" data-qr="http://192.168.1.20:8070/chat"></span><div style="display:grid;gap:6px"><span class="url">/chat</span><span class="pin"><code>••••••</code><button class="linkish">PIN zeigen</button></span><span class="hint">3 von höchstens 20 Handys</span></div></div>
+        <div style="display:flex;gap:6px"><button class="btn small">PIN groß zeigen</button><button class="btn small danger">Neue PIN</button></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================================================================== 5 Bausteine + ALLE TAGE -->
+<div class="mu-label">5 · Bausteine – Countdown-Zustände, Tag-Tabs, ALLE TAGE (links Nacht, rechts Tag)</div>
+<div class="mu-row" style="grid-template-columns:1fr 1fr">
+  <div class="mu-win" style="padding:16px;display:grid;gap:14px" data-theme="night">
+    <div class="mu-states">
+      <div class="mu-state"><small>Set-Ende · normal</small><span class="cd ok">25:40</span><small>noch</small></div>
+      <div class="mu-state"><small>ab 10 min</small><span class="cd warn">08:12</span><small>noch</small></div>
+      <div class="mu-state"><small>ab 2 min</small><span class="cd crit">01:47</span><small>noch</small></div>
+      <div class="mu-state"><small>überzogen</small><span class="cd over">+6:48</span><small>überzogen</small></div>
+      <div class="mu-state"><small>nächster Slot</small><span class="cd next">42:10</span><small>ab Übergabe <span style="color:var(--info)">cyan</span></small></div>
+      <div class="mu-state"><small>eigener</small><span class="cd own">18:00</span><small>Feuerwerk</small></div>
+      <div class="mu-state"><small>Nacht angehalten</small><span class="cd pause" style="font-size:22px">UNTERBRECHUNG</span></div>
+    </div>
+    <div class="alldays">
+      <div class="allday"><b>FR 14.11.<br><small class="muted">22:00–06:00</small></b><div class="allday-bands"><div class="allday-band"><i style="--c:var(--floor-1);--s:0;--e:87"></i></div><div class="allday-band"><i style="--c:var(--floor-2);--s:12;--e:87"></i></div></div></div>
+      <div class="allday on"><b>SA 15.11. <span style="color:var(--ok);font-size:11px">● läuft</span><br><small class="muted">22:00–06:00</small></b><div class="allday-bands"><div class="allday-band"><i style="--c:var(--floor-1);--s:0;--e:87.5"></i></div><div class="allday-band"><i style="--c:var(--floor-2);--s:12.5;--e:87.5"></i></div><div class="allday-band"><i style="--c:var(--floor-3);--s:0;--e:37.5"></i></div></div></div>
+      <div class="allday"><b>SO 16.11.<br><small class="muted">14:00–22:00</small></b><div class="allday-bands"><div class="allday-band"><i style="--c:var(--floor-3);--s:0;--e:100"></i></div></div></div>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn primary">Bestätigen</button><button class="btn">Abbrechen</button><button class="btn on">gewählt</button><button class="btn" disabled>gesperrt</button><button class="btn warn">Saallicht in 2:00</button><span class="pill ok"><span class="dot"></span>verbunden</span><span class="pill warn"><span class="dot"></span>Timecode fehlt 0:12</span><span class="tag fill-info">Geändert</span></div>
+  </div>
+  <div class="mu-win" style="padding:16px;display:grid;gap:14px" data-theme="day">
+    <div class="mu-states">
+      <div class="mu-state"><small>Set-Ende · normal</small><span class="cd ok">25:40</span><small>noch</small></div>
+      <div class="mu-state"><small>ab 10 min</small><span class="cd warn">08:12</span><small>noch</small></div>
+      <div class="mu-state"><small>ab 2 min</small><span class="cd crit">01:47</span><small>noch</small></div>
+      <div class="mu-state"><small>überzogen</small><span class="cd over">+6:48</span><small>überzogen</small></div>
+      <div class="mu-state"><small>nächster Slot</small><span class="cd next-on">09:10</span><small>ab Übergabe</small></div>
+      <div class="mu-state"><small>eigener</small><span class="cd own">18:00</span><small>Feuerwerk</small></div>
+      <div class="mu-state"><small>Nacht angehalten</small><span class="cd pause" style="font-size:22px">UNTERBRECHUNG</span></div>
+    </div>
+    <div class="days" style="margin:0"><button class="day"><b>FR 14.11.</b><small>22:00–06:00</small></button><button class="day on"><b>SA 15.11. <span class="running"><span class="dot"></span>läuft</span></b><small>SP 05:00</small></button><button class="day dst"><b>SO 26.10.</b><small>Zeitumstellung 03→02</small></button><button class="day all"><b>ALLE TAGE</b><small>Übersicht</small></button></div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn primary">Bestätigen</button><button class="btn">Abbrechen</button><button class="btn on">gewählt</button><button class="btn" disabled>gesperrt</button><button class="btn warn">Saallicht in 2:00</button><span class="pill ok"><span class="dot"></span>verbunden</span><span class="pill warn"><span class="dot"></span>Timecode fehlt 0:12</span><span class="tag fill-info">Geändert</span></div>
+    <div class="checks" style="margin:0"><div class="card ok"><b>Prüfung</b>Keine Überschneidung.</div><div class="card err"><b>Überschneidung</b>Kira 03:00–05:00 und Jay 04:30–06:00 auf Main.</div></div>
+  </div>
+</div>
+
+<!-- ================================================================== 6 Dialoge -->
+<div class="mu-label">6 · Dialoge – Neue Veranstaltung (Schritt 1: Tage) und Zustimmung (Schritt 2: Sichern, Protokoll)</div>
+<div class="mu-row" style="grid-template-columns:1fr 1fr">
+  <div class="mu-win" style="height:640px">
+    <div class="modal-back">
+      <div class="modal" role="dialog" aria-labelledby="dlg1">
+        <div class="modal-head"><h2 class="modal-title" id="dlg1" data-i18n="new.title">Neue Veranstaltung</h2><div class="steps-dots"><i class="on"></i><i></i><i></i></div></div>
+        <div class="modal-body">
+          <div class="two"><label class="field"><span>Name</span><input class="big-input" value="Wochenende Club Beispiel"></label><label class="field"><span>Ort</span><input class="big-input" value="Club Beispiel, Leipzig"></label></div>
+          <div class="dayrows">
+            <div class="dayrow headrow"><span>Datum</span><span>Bezeichnung</span><span>Beginn</span><span>Ende</span><span>Sperrstunde</span><span></span></div>
+            <div class="dayrow"><input class="input time" value="Fr 14.11."><input class="input" value="Freitag"><input class="input time" value="22:00"><input class="input time" value="06:00"><input class="input time" value="05:00"><button class="btn icon-btn small" aria-label="Tag entfernen" data-icon="close"></button></div>
+            <div class="dayrow"><input class="input time" value="Sa 15.11."><input class="input" value="Samstag"><input class="input time" value="22:00"><input class="input time" value="06:00"><input class="input time" value="05:00"><button class="btn icon-btn small" aria-label="Tag entfernen" data-icon="close"></button></div>
+            <div class="dayrow"><input class="input time" value="So 16.11."><input class="input" value="Open Air"><input class="input time" value="14:00"><input class="input time" value="22:00"><input class="input time" value="22:00"><button class="btn icon-btn small" aria-label="Tag entfernen" data-icon="close"></button></div>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center"><button class="btn" data-icon="plus">Tag</button><span class="spacer"></span><span class="hint">Tageswechsel um <b style="color:var(--text)" class="mono">08:00</b> · Zeitzone Europe/Berlin</span></div>
+          <div class="note">Ein Tag läuft über Mitternacht: „Samstag“ = Sa 22:00 bis So 06:00. Tage dürfen sich nicht überlappen.</div>
+        </div>
+        <div class="modal-foot"><span class="muted small">Schritt 1 von 3</span><button class="btn">Abbrechen</button><button class="btn primary">Weiter</button></div>
+      </div>
+    </div>
+  </div>
+  <div class="mu-win" style="height:640px">
+    <div class="modal-back">
+      <div class="modal" role="dialog" aria-labelledby="dlg2">
+        <div class="modal-head"><h2 class="modal-title" id="dlg2">Zwei Fragen vorab</h2><div class="steps-dots"><i class="on"></i><i class="on"></i><i></i></div></div>
+        <div class="modal-body" style="gap:0">
+          <div class="consent">
+            <h4 data-i18n="consent.save.q">Auf diesem Rechner sichern?</h4>
+            <p data-i18n="consent.save.text">Plan mit Namen und Notizen als .crewlink-Datei, dazu eine laufende Sicherung. Ohne Sichern bleibt alles nur im Speicher – nach einem Absturz ist der Plan weg.</p>
+            <div class="choice-grid">
+              <button class="choice on" aria-pressed="true" data-icon="check"><span><b>Ja, sichern</b><small>empfohlen</small></span></button>
+              <button class="choice" aria-pressed="false" data-icon="close"><span><b>Nein, nur im Speicher</b><small>nichts auf der Platte</small></span></button>
+            </div>
+          </div>
+          <div class="consent">
+            <h4 data-i18n="consent.log.q">Protokoll der Nacht führen?</h4>
+            <p data-i18n="consent.log.text">Hält fest, wann wirklich gewechselt wurde, wer überzogen hat und welche Änderungen es gab. Das sind Leistungsdaten von Personen. Nur die Leitung sieht es, Export nur von Hand, Löschen mit einem Knopf.</p>
+            <div class="choice-grid">
+              <button class="choice" aria-pressed="false" data-icon="list"><span><b>Ja, Protokoll führen</b><small>für Abrechnung und GEMA</small></span></button>
+              <button class="choice on" aria-pressed="true" data-icon="close"><span><b>Nein</b><small>später unter ROLLEN → Protokoll</small></span></button>
+            </div>
+          </div>
+        </div>
+        <div class="modal-foot"><span class="muted small">Schritt 2 von 3</span><button class="btn">Zurück</button><button class="btn primary">Weiter</button></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================================================================== 7 Start im Tagmodus -->
+<div class="mu-label">7 · Startbildschirm im Tagmodus (data-theme="day") – Logo-Variante „on-light“</div>
+<div class="mu-win" data-theme="day" style="height:560px">
+  <div class="start" style="padding:24px">
+    <div class="start-card" style="padding:28px;gap:28px">
+      <div class="start-left">
+        <div class="start-logo"><img class="on-dark" src="../assets/logo-horizontal-on-dark.svg" alt="Crew Link"><img class="on-light" src="../assets/logo-horizontal-on-light.svg" alt="Crew Link"></div>
+        <p class="start-tag">Ablauf der Nacht: wer wann spielt, Countdown bis Set-Ende und Sperrstunde – eine Uhr für alle.</p>
+        <div class="start-grid">
+          <button class="start-btn primary" data-icon="play"><span class="start-btxt"><b>Weiter</b><small>Wochenende Club Beispiel · Tag 2 von 3 läuft</small></span></button>
+          <button class="start-btn" data-icon="newEvent"><span class="start-btxt"><b>Neue Veranstaltung</b><small>ein oder mehrere Tage, Floors</small></span></button>
+          <button class="start-btn" data-icon="phone"><span class="start-btxt"><b>Handys verbinden</b><small>QR-Code je Rolle</small></span></button>
+        </div>
+      </div>
+      <div class="start-right">
+        <div class="start-net off">
+          <h3>So finden Handys Crew Link<span class="spacer"></span><label style="display:flex;align-items:center;gap:8px;letter-spacing:0;text-transform:none;font-size:12px;color:var(--text);font-weight:600">Weboberfläche <input type="checkbox" class="switch"></label></h3>
+          <div class="start-web off"><span class="qr" data-qr="off"></span><div style="display:grid;gap:4px"><span class="ipl" style="color:var(--dim)">192.168.1.20:8070</span><span class="hint">Weboberfläche ist aus. „Handys verbinden“ schaltet sie für diese Veranstaltung ein.</span></div></div>
+        </div>
+        <div class="start-extra"><div class="start-lang"><span data-icon="sun" class="ico" style="width:18px;height:18px"></span><span>Darstellung</span><div class="seg"><button class="on">Tag</button><button>Nacht</button><button>System</button></div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="muster.js"></script>
+</body>
+</html>

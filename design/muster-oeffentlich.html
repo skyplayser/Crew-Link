@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="de" data-theme="night">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crew Link – Muster Öffentliche Seite</title>
+<!-- /oeffentlich und /oeffentlich?floor=main – Bildschirm am Eingang/an der Bar. Quer, Vollbild.
+     NUR öffentliche Namen. Keine Notizen, keine Hinweise, keine Countdowns bis Set-Ende, kein EMERGENCY, kein Chat.
+     Screenshot: cd /Users/serato/VD-Link && npx electron /Users/serato/Link-Suite/_tools/sheet-file.cjs \
+       /Users/serato/Crew-Link/design/muster-oeffentlich.html /Users/serato/Crew-Link/design/screens/oeffentlich.png 1360 -->
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="components.css">
+<style>
+  body{padding:28px 40px 60px;width:1360px}
+  .mu-h1{display:flex;align-items:center;gap:14px;font:800 26px var(--disp);margin:0 0 4px}
+  .mu-h1 img{height:30px}
+  .mu-sub{color:var(--dim);margin:0 0 8px;font-size:13px}
+  .mu-label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);font-weight:700;margin:30px 0 10px}
+  .mu-frame{border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.45)}
+  .mu-frame .pub-screen{min-height:0}
+  .f-big{width:1280px;height:720px}
+  .f-big .pub-screen{--u:12.8px}
+  .f-s{width:628px;height:353px}
+  .f-s .pub-screen{--u:6.28px}
+  .mu-grid{display:grid;grid-template-columns:628px 628px;gap:24px}
+  .mu-cap{color:var(--dim);font-size:12px;margin:8px 0 0}
+</style>
+</head>
+<body>
+<h1 class="mu-h1"><img src="../assets/symbol.svg" alt="">Crew Link · Muster Öffentliche Seite</h1>
+<p class="mu-sub">Für Gäste: „Mara Lux“ bleibt „Special Guest“. Kein Set-Ende-Countdown (Interna), nur Uhrzeit und „ab 03:00“. Floor-Farbe nur als Kante oben.</p>
+
+<div class="mu-label">1 · /oeffentlich – alle Floors (1280 × 720)</div>
+<div class="mu-frame f-big">
+  <div class="pub-screen" style="--n:3">
+    <div class="pub-top">
+      <span class="pub-name">Wochenende Club Beispiel · Samstag</span>
+      <span class="pub-time">02:46</span>
+    </div>
+    <div class="pub-floors">
+      <div class="pub-floor" style="--c:var(--floor-1)"><span class="pub-k">Main · jetzt</span><span class="pub-now">Nova</span><span class="pub-next">ab <time>03:00</time> <b>Kira</b></span></div>
+      <div class="pub-floor" style="--c:var(--floor-2)"><span class="pub-k">Keller · jetzt</span><span class="pub-now">Tom Riva</span><span class="pub-next">danach <b>Special Guest</b></span></div>
+      <div class="pub-floor" style="--c:var(--floor-3)"><span class="pub-k">Terrasse</span><span class="pub-now closed">geschlossen</span><span class="pub-next">Sonntag Open Air ab <time>14:00</time></span></div>
+    </div>
+    <div class="pub-foot">Musik bis 05:00 · Danke, dass ihr leise nach Hause geht</div>
+  </div>
+</div>
+
+<div class="mu-label">2 · Varianten (628 × 353)</div>
+<div class="mu-grid">
+  <div>
+    <div class="mu-frame f-s">
+      <div class="pub-screen single">
+        <div class="pub-top"><span class="pub-name">Main</span><span class="pub-time">02:46</span></div>
+        <div class="pub-floors"><div class="pub-floor" style="--c:var(--floor-1)"><span class="pub-k">Jetzt</span><span class="pub-now">Nova</span><span class="pub-next">ab <time>03:00</time> <b>Kira</b> · danach <b>Jay</b> ab <time>05:00</time></span></div></div>
+        <div class="pub-foot">Musik bis 05:00</div>
+      </div>
+    </div>
+    <p class="mu-cap">?floor=main – ein Floor, Name riesig (z. B. Bildschirm neben dem Floor).</p>
+  </div>
+  <div>
+    <div class="mu-frame f-s">
+      <div class="pub-screen" style="--n:2">
+        <div class="pub-top"><span class="pub-name"><img src="../assets/symbol.svg" alt="">Open Air 2027 · Tag 2</span><span class="pub-time">11:20</span></div>
+        <div class="pub-floors">
+          <div class="pub-floor" style="--c:var(--floor-1)"><span class="pub-k">Bühne A</span><span class="pub-now closed">ab 12:00</span><span class="pub-next">zuerst <b>Morning Glory</b></span></div>
+          <div class="pub-floor" style="--c:var(--floor-2)"><span class="pub-k">Bühne B</span><span class="pub-now closed">ab 13:00</span><span class="pub-next">zuerst <b>Duo Pulse</b></span></div>
+        </div>
+        <div class="pub-foot">Heute bis 04:00</div>
+      </div>
+    </div>
+    <p class="mu-cap">Vor Beginn des Tages: „ab 12:00“ statt Countdown. Optional Logo der Veranstaltung links oben (hier Platzhalter).</p>
+  </div>
+</div>
+<script src="muster.js"></script>
+</body>
+</html>
