@@ -7,7 +7,7 @@ may still change – including the `.crewlink` file format.
 
 ## [0.1.0] – Alpha
 
-_Date: unreleased_
+_Date: 2026-11-17_
 
 First public alpha of Crew Link, part of the Link-Suite: the running order of the night, countdowns to set end and
 curfew, and one house clock for everyone. This is phase 1 of the concept (MVP).

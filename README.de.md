@@ -225,9 +225,7 @@ Repos, prüft die Datei und hält alle Programme der Suite aktuell. Solange der 
 zeigt, ist das Release 0.1.0 noch nicht erschienen – bis dahin startest du es aus dem Quellcode
 ([Selbst bauen](#selbst-bauen)).
 
-<!-- Wieder einschalten, sobald das Repo skyplayser/Crew-Link existiert:
 <sub>Einzelne Installer von Crew Link (`Crew-Link-macos-arm64.dmg`, `Crew-Link-macos-intel.dmg`, `Crew-Link-windows.exe`) und `SHA256SUMS` liegen in den [GitHub-Releases](https://github.com/skyplayser/Crew-Link/releases) dieses Repos.</sub>
--->
 
 Der Launcher und Crew Link 0.1.0 sind **noch nicht signiert und nicht notarisiert**. Beide Systeme können deshalb beim
 ersten Start warnen:

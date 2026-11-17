@@ -223,9 +223,7 @@ releases, checks the file and keeps all programs of the suite up to date. As lon
 as *coming soon*, release 0.1.0 is not out yet – until then start it from the source code
 ([Build from source](#build-from-source)).
 
-<!-- Wieder einschalten, sobald das Repo skyplayser/Crew-Link existiert:
 <sub>Single installers of Crew Link (`Crew-Link-macos-arm64.dmg`, `Crew-Link-macos-intel.dmg`, `Crew-Link-windows.exe`) and `SHA256SUMS` are in this repository's [GitHub releases](https://github.com/skyplayser/Crew-Link/releases).</sub>
--->
 
 The launcher and Crew Link 0.1.0 are **not signed or notarized yet**, so both systems may warn on the first start:
 
