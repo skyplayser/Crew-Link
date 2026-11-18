@@ -221,9 +221,8 @@ Alle Programme der Suite lädst und installierst du mit einem Launcher: **Link-S
 Mehr zum Launcher: [skyplayser.github.io/Link-Suite](https://skyplayser.github.io/Link-Suite/).
 
 Öffne den Launcher und klick neben Crew Link auf *Installieren*. Der Launcher lädt Crew Link aus den Releases dieses
-Repos, prüft die Datei und hält alle Programme der Suite aktuell. Solange der Launcher Crew Link noch als *kommt bald*
-zeigt, ist das Release 0.1.0 noch nicht erschienen – bis dahin startest du es aus dem Quellcode
-([Selbst bauen](#selbst-bauen)).
+Repos, prüft die Datei und hält alle Programme der Suite aktuell. Crew Link braucht Link-Suite **1.0.5 oder neuer**; zeigt der
+Launcher Crew Link noch als *kommt bald*, aktualisiere zuerst den Launcher.
 
 <sub>Einzelne Installer von Crew Link (`Crew-Link-macos-arm64.dmg`, `Crew-Link-macos-intel.dmg`, `Crew-Link-windows.exe`) und `SHA256SUMS` liegen in den [GitHub-Releases](https://github.com/skyplayser/Crew-Link/releases) dieses Repos.</sub>
 

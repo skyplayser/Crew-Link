@@ -219,9 +219,8 @@ All programs of the suite are downloaded and installed with one launcher: **Link
 More about the launcher: [skyplayser.github.io/Link-Suite](https://skyplayser.github.io/Link-Suite/).
 
 Open the launcher and click *Install* next to Crew Link. The launcher downloads Crew Link from this repository's
-releases, checks the file and keeps all programs of the suite up to date. As long as the launcher still shows Crew Link
-as *coming soon*, release 0.1.0 is not out yet – until then start it from the source code
-([Build from source](#build-from-source)).
+releases, checks the file and keeps all programs of the suite up to date. Crew Link needs Link-Suite **1.0.5 or newer**; if the launcher
+still shows Crew Link as *coming soon*, update the launcher first.
 
 <sub>Single installers of Crew Link (`Crew-Link-macos-arm64.dmg`, `Crew-Link-macos-intel.dmg`, `Crew-Link-windows.exe`) and `SHA256SUMS` are in this repository's [GitHub releases](https://github.com/skyplayser/Crew-Link/releases).</sub>
 
