@@ -325,10 +325,10 @@ projectors, and takes tempo and track from LJ Link. Free for macOS and Windows.
 
 <br clear="left">
 
-<img src="docs/images/vd-link-icon.svg" width="56" align="left" alt="VD-Link logo">
+<a href="https://github.com/skyplayser/VD-Link"><img src="docs/images/vd-link-icon.svg" width="56" align="left" alt="VD-Link logo"></a>
 
-**VD-Link** (coming soon) is a 3D light visualizer for Art-Net and sACN: your light desk runs a
-virtual club or festival, and you see the show before it is hung. Beta.
+**[VD-Link](https://github.com/skyplayser/VD-Link)** is a 3D light visualizer for Art-Net and sACN: your light desk runs a
+virtual club or festival, and you see the show before it is hung. Free for macOS and Windows.
 
 <br clear="left">
 

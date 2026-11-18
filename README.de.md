@@ -330,10 +330,10 @@ LED-W채nden und Projektoren, und nimmt Tempo und Titel aus LJ Link. Kostenlos f�
 
 <br clear="left">
 
-<img src="docs/images/vd-link-icon.svg" width="56" align="left" alt="VD-Link-Logo">
+<a href="https://github.com/skyplayser/VD-Link"><img src="docs/images/vd-link-icon.svg" width="56" align="left" alt="VD-Link-Logo"></a>
 
-**VD-Link** (bald verf체gbar) ist ein 3D-Lichtvisualisierer f체r Art-Net und sACN: Dein Lichtpult
-steuert einen virtuellen Club oder ein Festival, und du siehst die Show, bevor sie h채ngt. Beta.
+**[VD-Link](https://github.com/skyplayser/VD-Link)** ist ein 3D-Lichtvisualisierer f체r Art-Net und sACN: Dein Lichtpult
+steuert einen virtuellen Club oder ein Festival, und du siehst die Show, bevor sie h채ngt. Kostenlos f체r macOS und Windows.
 
 <br clear="left">
 
