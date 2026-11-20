@@ -17,6 +17,7 @@
   <img alt="Version 0.1.0 Alpha" src="https://img.shields.io/badge/Version-0.1.0%20Alpha-FFB020">
   <img alt="Geprüft auf einem Mac im Demo-Modus" src="https://img.shields.io/badge/gepr%C3%BCft-ein%20Mac%2C%20Demo--Modus-3DDC84">
   <img alt="Kostenlos" src="https://img.shields.io/badge/Preis-kostenlos-B45CFF">
+  <a href="https://github.com/skyplayser/Crew-Link/releases"><img alt="Downloads" src="https://img.shields.io/github/downloads/skyplayser/Crew-Link/total?label=Downloads&color=22C8F0"></a>
   <a href="LICENSE"><img alt="Lizenz: EPL-2.0" src="https://img.shields.io/badge/Lizenz-EPL--2.0-FF5C93"></a>
 </p>
 
